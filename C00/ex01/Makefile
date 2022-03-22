@@ -1,8 +1,8 @@
-TARGET = megaphone
+TARGET = phonebook
 CPP = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
-SRCS = megaphone.cpp
+SRCS = main.cpp Page.cpp PhoneBook.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(TARGET)

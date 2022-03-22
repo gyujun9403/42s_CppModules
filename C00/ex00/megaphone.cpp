@@ -1,72 +1,69 @@
 #include <iostream>
-#include <string>
 
-class megaphone
+class Megaphone
 {
 private:
-	int	_numOfStr;
-	std::string *_strs;
+	int	num_of_str_;
+	std::string *strs;
 private:	
-	void PrtTrimedStr();
+	void prtTrimedStr();
 public:
-	megaphone(int ac);
-	megaphone(int ac, char **av);
-	~megaphone();
+	Megaphone(int ac);
+	Megaphone(int ac, char **av);
+	~Megaphone();
 	void MakeAwake();
 };
 
-megaphone::megaphone(int ac, char **av) : _numOfStr(ac - 1)
+Megaphone::Megaphone(int ac, char **av) : num_of_str_(ac - 1)
 {
-	if (_numOfStr > 0)
-	{
-		_strs = new std::string[_numOfStr];
-		for (int i = 0; i < _numOfStr; i++)
-		{
-			(_strs[i]).assign(av[i + 1]);
+	if (num_of_str_ > 0) {
+		strs = new std::string[num_of_str_];
+		for (int i = 0; i < num_of_str_; i++) {
+			(strs[i]).assign(av[i + 1]);
 		}
 	}
-	else
-	{
-		_strs = NULL;
+	else {
+		strs = NULL;
 	}
 }
 
-void megaphone::PrtTrimedStr()
+void Megaphone::prtTrimedStr()
 {
-	std::string str;
+	std::string				str;
+	std::string::size_type	trim_begin;
+	std::string::size_type	trim_end;
 
-	for (int i = 0; i < this->_numOfStr; i++)
-	{
-		str.assign(_strs[i], 
-			_strs[i].find_first_not_of("\a\b\f\n\r\t\v "),
-			_strs[i].find_last_not_of("\a\b\f\n\r\t\v "));
-		std::cout << _strs[i] << "'s last : " <<_strs[i].find_last_not_of("\a\b\f\n\r\t\v ") << std::endl;;
+	for (int i = 0; i < this->num_of_str_; i++) {
+		trim_begin = strs[i].find_first_not_of("\a\b\f\n\r\t\v ");
+		trim_end = strs[i].find_last_not_of("\a\b\f\n\r\t\v ");
+		if (trim_begin > strs[i].size())
+			continue;
+		str.assign(strs[i], trim_begin, trim_end - trim_begin + 1);
 		std::transform(str.begin(), str.end(), str.begin(), ::toupper);
-		//std::cout << str << " ";
+		std::cout << str << ' ';
 	}
 	std::cout << std::endl;
 }
 
-void megaphone::MakeAwake()
+void Megaphone::MakeAwake()
 {
-	if (_numOfStr == 0)
+	if (num_of_str_ == 0)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		PrtTrimedStr();
+	else {
+		prtTrimedStr();
 	}
 	
 }
 
-megaphone::~megaphone()
+Megaphone::~Megaphone()
 {
-	delete[] _strs;
+	delete[] strs;
 }
 
 
 int main(int ac, char **av)
 {
-	megaphone mgp(ac, av);
+	Megaphone mgp(ac, av);
 	mgp.MakeAwake();
 
 	return 0;
