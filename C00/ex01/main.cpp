@@ -1,7 +1,3 @@
-//
-// Created by 연규준 on 2022/03/08.
-//
-
 #include <iostream>
 #include "PhoneBook.hpp"
 

@@ -1,7 +1,3 @@
-//
-// Created by 연규준 on 2022/03/08.
-//
-
 #ifndef C00_PAGE_H
 #define C00_PAGE_H
 
@@ -34,4 +30,4 @@ public:
 };
 
 
-#endif //C00_PAGE_H
+#endif

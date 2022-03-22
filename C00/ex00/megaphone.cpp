@@ -68,10 +68,3 @@ int main(int ac, char **av)
 
 	return 0;
 }
-
-/*
-REF
-trim : http://duongame.blogspot.com/2015/04/c-string-trim.html
-toupper : https://godog.tistory.com/entry/C-string-%EC%86%8C%EB%AC%B8%EC%9E%90-%EB%8C%80%EB%AC%B8%EC%9E%90-%EB%B3%80%ED%99%98-tolwer-toupper
-assign : https://computer-science-student.tistory.com/44
-*/

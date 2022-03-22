@@ -1,7 +1,3 @@
-//
-// Created by 연규준 on 2022/03/08.
-//
-
 #include "PhoneBook.hpp"
 
 void PhoneBook::addPage()
