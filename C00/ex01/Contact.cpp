@@ -1,6 +1,6 @@
-#include "Page.hpp"
+#include "Contact.hpp"
 
-void Page::setFirstName()
+void Contact::setFirstName()
 {
 	std::string input;
 	while (1) {
@@ -15,7 +15,7 @@ void Page::setFirstName()
 	}
 }
 
-void Page::setLastName()
+void Contact::setLastName()
 {
 	std::string input;
 	while (1) {
@@ -30,7 +30,7 @@ void Page::setLastName()
 	}
 }
 
-void Page::setNickname()
+void Contact::setNickname()
 {
 	std::string input;
 	while (1) {
@@ -45,7 +45,7 @@ void Page::setNickname()
 	}
 }
 
-void Page::setPhoneNumber()
+void Contact::setPhoneNumber()
 {
 	std::string input;
 	while (1) {
@@ -60,7 +60,7 @@ void Page::setPhoneNumber()
 	}
 }
 
-void Page::setDarkestSecret()
+void Contact::setDarkestSecret()
 {
 	std::string input;
 	std::cout << "Tell me your darkest secret> ";
@@ -68,7 +68,7 @@ void Page::setDarkestSecret()
 	darkest_secret_.assign(input);
 }
 
-void Page::setPage()
+void Contact::setContact()
 {
 	setFirstName();
 	setLastName();
@@ -77,7 +77,7 @@ void Page::setPage()
 	setDarkestSecret();
 }
 
-void Page::prtPage()
+void Contact::prtContact()
 {
 	if (first_name_.empty())
 		std::cout << "This page is EMPTY!" << std::endl;
@@ -89,7 +89,7 @@ void Page::prtPage()
 	}
 }
 
-std::string Page::adjustFirstNameSimple()
+std::string Contact::adjustFirstNameSimple()
 {
 	std::string result_str;
 	std::cout << std::setw(10);
@@ -101,7 +101,7 @@ std::string Page::adjustFirstNameSimple()
 		result_str.assign(first_name_);
 	return result_str;
 }
-std::string Page::adjustLastNameSimple()
+std::string Contact::adjustLastNameSimple()
 {
 	std::string result_str;
 	std::cout << std::setw(10);
@@ -114,7 +114,7 @@ std::string Page::adjustLastNameSimple()
 	return result_str;
 }
 
-std::string Page::adjustNicknameSimple()
+std::string Contact::adjustNicknameSimple()
 {
 	std::string result_str;
 	std::cout << std::setw(10);
@@ -127,7 +127,7 @@ std::string Page::adjustNicknameSimple()
 	return result_str;
 }
 
-std::string Page::adjustPhoneNumberSimple()
+std::string Contact::adjustPhoneNumberSimple()
 {
 	std::string result_str;
 	std::cout << std::setw(10);
@@ -140,7 +140,7 @@ std::string Page::adjustPhoneNumberSimple()
 	return result_str;
 }
 
-void Page::prtPageSimple()
+void Contact::prtContactSimple()
 {
 	if (!first_name_.empty())
 		std::cout << adjustFirstNameSimple() << "|"

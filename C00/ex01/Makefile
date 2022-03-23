@@ -2,7 +2,7 @@ TARGET = phonebook
 CPP = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
-SRCS = main.cpp Page.cpp PhoneBook.cpp
+SRCS = main.cpp Contact.cpp PhoneBook.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(TARGET)
