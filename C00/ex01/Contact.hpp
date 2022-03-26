@@ -5,6 +5,7 @@
 #include <iomanip>
 
 #define ALL_ALPHA	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#define ALL_NUMBER	"0123456789"
 #define WHITE_SPACE	"\a\b\f\n\r\t\v "
 
 class Contact {
@@ -26,7 +27,7 @@ private:
 public:
 	void setContact();
 	void prtContact();
-	void prtContactSimple();
+	void prtContactSimple(int idx);
 };
 
 

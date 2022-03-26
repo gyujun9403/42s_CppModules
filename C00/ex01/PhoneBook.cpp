@@ -11,7 +11,7 @@ void PhoneBook::addPage()
 void PhoneBook::searchPage()
 {
 	for (int i = 0; i < 8; i++)
-		this->page[i].prtContactSimple();
+		this->page[i].prtContactSimple(i + 1);
 }
 
 void PhoneBook::searchPage(int idx)

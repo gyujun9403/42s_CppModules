@@ -51,7 +51,7 @@ void Contact::setPhoneNumber()
 	while (1) {
 		std::cout << "Write your phone number without '-'> ";
 		std::getline(std::cin, input);
-		if (input.find_first_not_of("0123456789") == std::string::npos) {
+		if (input.find_first_not_of(ALL_NUMBER) == std::string::npos) {
 			phone_number_.assign(input);
 			break;
 		}
@@ -140,11 +140,13 @@ std::string Contact::adjustPhoneNumberSimple()
 	return result_str;
 }
 
-void Contact::prtContactSimple()
+void Contact::prtContactSimple(int idx)
 {
-	if (!first_name_.empty())
-		std::cout << adjustFirstNameSimple() << "|"
-			<< adjustLastNameSimple() << "|"
-			<< adjustNicknameSimple() << "|"
-			<< adjustPhoneNumberSimple() << std::endl;
+	if (!first_name_.empty()) {
+		std::cout.width(10);
+		std::cout << idx << "|"
+				  << adjustFirstNameSimple() << "|"
+				  << adjustLastNameSimple() << "|"
+				  << adjustNicknameSimple() << std::endl;
+	}
 }
