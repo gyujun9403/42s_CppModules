@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="C00" targetName="fclean" />
+      <config projectName="C00" targetName="phonebook" />
+      <config projectName="C00" targetName="all" />
+      <config projectName="C00" targetName="re" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ee0ed2d5-f062-46dd-99da-5f5d4ee1609e" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/ex00/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex00/megaphone.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/Contact.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/Contact.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/PhoneBook.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/PhoneBook.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/phonebook" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex02/Account.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex02/Account.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex02/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex02/tests.cpp" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/ex01">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="C00" />
+              <option name="path" value="$PROJECT_DIR$/ex01" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="C00" />
+                <option name="path" value="$PROJECT_DIR$/ex01" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/ex01" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2021" />
+    <option name="minorVersion" value="3.2" />
+  </component>
+  <component name="ProjectId" id="2658rZo4eyTDMUjfjbB0z54tFTs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="MakefileSettings" />
+  </component>
+  <component name="RunManager" selected="Makefile 애플리케이션.all">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="C00" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/ex01/phonebook">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="C00" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="phonebook" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="C00" TARGET_NAME="phonebook" CONFIG_NAME="phonebook" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="C00" TARGET_NAME="re" CONFIG_NAME="re" version="1" RUN_PATH="$PROJECT_DIR$/ex01/phonebook">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Makefile 애플리케이션.all" />
+      <item itemvalue="Makefile 애플리케이션.fclean" />
+      <item itemvalue="Makefile 애플리케이션.re" />
+      <item itemvalue="Makefile 애플리케이션.phonebook" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="ee0ed2d5-f062-46dd-99da-5f5d4ee1609e" name="변경" comment="" />
+      <created>1646702287871</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646702287871</updated>
+      <workItem from="1646702290328" duration="21228000" />
+      <workItem from="1647830980052" duration="7471000" />
+      <workItem from="1647870653222" duration="4834000" />
+      <workItem from="1647927441075" duration="106000" />
+      <workItem from="1648021696436" duration="1232000" />
+      <workItem from="1648085113055" duration="2061000" />
+      <workItem from="1648111004165" duration="2935000" />
+      <workItem from="1648126047865" duration="444000" />
+      <workItem from="1648258075210" duration="3627000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CLionNativeAppRunConfigurationType">
+        <watch expression="input.size()" language="ObjectiveC" />
+        <watch expression="input.find(&quot;12345678&quot;) != std::string::npos" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

@@ -5,10 +5,10 @@ class Megaphone
 private:
 	int	num_of_str_;
 	std::string *strs;
-private:	
-	void prtTrimedStr();
+	Megaphone();
+private:
+	void prtStrs();
 public:
-	Megaphone(int ac);
 	Megaphone(int ac, char **av);
 	~Megaphone();
 	void MakeAwake();
@@ -18,29 +18,21 @@ Megaphone::Megaphone(int ac, char **av) : num_of_str_(ac - 1)
 {
 	if (num_of_str_ > 0) {
 		strs = new std::string[num_of_str_];
-		for (int i = 0; i < num_of_str_; i++) {
+		for (int i = 0; i < num_of_str_; i++)
 			(strs[i]).assign(av[i + 1]);
-		}
 	}
-	else {
+	else
 		strs = NULL;
-	}
 }
 
-void Megaphone::prtTrimedStr()
+void Megaphone::prtStrs()
 {
-	std::string				str;
-	std::string::size_type	trim_begin;
-	std::string::size_type	trim_end;
-
 	for (int i = 0; i < this->num_of_str_; i++) {
-		trim_begin = strs[i].find_first_not_of("\a\b\f\n\r\t\v ");
-		trim_end = strs[i].find_last_not_of("\a\b\f\n\r\t\v ");
-		if (trim_begin > strs[i].size())
-			continue;
-		str.assign(strs[i], trim_begin, trim_end - trim_begin + 1);
-		std::transform(str.begin(), str.end(), str.begin(), ::toupper);
-		std::cout << str << ' ';
+		for (std::string::size_type j = 0; j < this->strs[i].size(); j++) {
+			if (this->strs[i][j] >= 'a' && this->strs[i][j] <= 'z')
+				this->strs[i][j] -= 32;
+		}
+		std::cout << this->strs[i];
 	}
 	std::cout << std::endl;
 }
@@ -49,10 +41,8 @@ void Megaphone::MakeAwake()
 {
 	if (num_of_str_ == 0)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else {
-		prtTrimedStr();
-	}
-	
+	else
+		prtStrs();
 }
 
 Megaphone::~Megaphone()
