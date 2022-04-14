@@ -8,7 +8,7 @@
 int main()
 {
 	Zombie	zombie_host("leon");
-	Zombie* horde = zombie_host.zombieHorde(NUM_OF_ZOMBIES_IN_HORDE, "zombie");
+	Zombie* horde = zombie_host.zombieHorde(3, "zombie");
 	for (int i = 0; i < NUM_OF_ZOMBIES_IN_HORDE; i++)
 		horde[i].announce();
 	delete[] horde;

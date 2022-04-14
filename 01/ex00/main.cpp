@@ -7,8 +7,10 @@
 int main()
 {
 	Zombie william("William");
-	Zombie leon = william.newZombie("Leon");
-	leon.randomChump("Marvin");
+	william.announce();
+	Zombie *leon = william.newZombie("Leon");
+	leon->announce();
+	leon->randomChump("Marvin");
 	delete leon;
 	return 0;
 }
