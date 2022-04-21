@@ -15,4 +15,4 @@ clean :
 fclean : clean
 	rm -rf $(TARGET)
 re : fclean all
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re re

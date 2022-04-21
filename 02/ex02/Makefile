@@ -1,8 +1,8 @@
-TARGET = megaphone
+TARGET = ex02
 CPP = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
-SRCS = megaphone.cpp
+SRCS = Fixed.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(TARGET)
@@ -15,4 +15,4 @@ clean :
 fclean : clean
 	rm -rf $(TARGET)
 re : fclean all
-.PHONY : all clean fclean re re
+.PHONY : all clean fclean re
