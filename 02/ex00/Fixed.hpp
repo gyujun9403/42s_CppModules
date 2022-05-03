@@ -10,7 +10,7 @@ private:
 public: 
 	// default constructor
 	Fixed();
-	// distructor
+	// destructor
 	~Fixed();
 	// copy constructor
 	Fixed(const Fixed& other);

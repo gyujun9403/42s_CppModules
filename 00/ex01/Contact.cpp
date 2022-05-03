@@ -62,6 +62,7 @@ void Contact::setPhoneNumber()
 
 void Contact::setDarkestSecret()
 {
+
 	std::string input;
 	std::cout << "Tell me your darkest secret> ";
 	std::getline(std::cin, input);

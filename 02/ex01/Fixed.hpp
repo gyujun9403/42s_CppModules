@@ -10,7 +10,7 @@ private:
 public: 
 	// ********[canonical class form]********
 	Fixed();								// default constructor
-	~Fixed();								// distructor
+	~Fixed();								// destructor
 	Fixed(const Fixed& other);				// copy constructor
 	Fixed& operator=(const Fixed& other);	// (copy) assignment operator
 	// **************************************
