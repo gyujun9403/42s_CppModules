@@ -42,6 +42,7 @@ void DiamondTrap::attack(std::string const & target)
 	ScavTrap::attack(target);
 }
 
+// 🌟 오버라이딩 하지 않으면 밑에서 DiamondTrap::getName()해도 ClapTrap의 getName()이 호출된다.
 std::string DiamondTrap::getName() const
 {
 	return this->name_;
