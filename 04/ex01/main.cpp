@@ -15,7 +15,6 @@ int main()
 
 	for (int i = 0; i < ARR_SIZE; i++)
 	{
-		std::cout << i << std::endl;
 		if (i % 2 == 0)
 			arrAnimal[i] = new Dog();
 		else
@@ -26,7 +25,7 @@ int main()
 	castedCat->getBrain().getIdea(0).assign("meow!");
 	castedCat->getBrain().getIdea(1).assign("meow!!");
 	castedCat->getBrain().getIdea(2).assign("meow!!!");
-	copiedCat = *castedCat;
+	copiedCat.getBrain() = castedCat->getBrain();
 
 	std::cout << copiedCat.getBrain().getIdea(0) << std::endl;
 	std::cout << copiedCat.getBrain().getIdea(1) << std::endl;
