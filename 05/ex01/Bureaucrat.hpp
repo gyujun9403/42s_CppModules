@@ -3,12 +3,15 @@
 
 #include <string>
 #include <exception>
+#include "Form.hpp"
+
+// 🌟 error unknown type name 'Form' occur when you don't make beSigned(...) in cpp
+class Form;
 
 class Bureaucrat
 {
 	// ****************[canonical class form]****************
 protected:
-	// 🌟
 	Bureaucrat();									// default constructor
 public:
 	virtual ~Bureaucrat();							// destructor
@@ -22,20 +25,14 @@ private:
 	const std::string name_;
 	int grade_;
 
-	// 🌟extent of std::exception's exceptions
 	class GradeTooHighException: public std::exception
 	{
 	private:
-		// exception message
 		std::string message_;
 	public:
-		// ❓error: exception specification of overriding function is more lax than base version
 		virtual ~GradeTooHighException() throw();
-		// 🌟 constructor
 		GradeTooHighException(int max);
 		GradeTooHighException(int max, int now);
-		// 🌟 class that extent std::exception must override 
-		//		'virtual const char* what() const throw()'.
 		virtual const char* what() const throw();
 	};
 	class GradeTooLowException: public std::exception
@@ -53,14 +50,10 @@ public:
 	Bureaucrat(std::string name, int grade) throw(std::exception);
 	std::string getName() const;
 	int getGrade() const;
-	// 🌟 throw(std::exception) generates std::exception object, and throw it 'catch() {...}' as execption.
-	// 		if it will throw anything, throw(...).
-	// 		and if it won't throw execption, throw().
 	void incrementGrade(int up) throw(std::exception);
 	void decrementGrade(int down) throw(std::exception);
+	void signForm(const Form& form);
 };
-
-// a type qualifier is not allowed on a nonmember functionC/C++(1670)		↓
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& in);	// const;
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& in);
 
 #endif

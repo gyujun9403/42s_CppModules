@@ -93,6 +93,18 @@ int Bureaucrat::getGrade() const
 	return this->grade_;
 }
 
+void Bureaucrat::signForm(const Form& form)
+{
+	if (form.getSignGrade() >= this->getGrade())
+	{
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	else
+	{
+		throw GradeTooLowException(this->getGrade(), form.getSignGrade());
+	}
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& in)
 {
 	return os << in.getName() << ", bureaucrat grade " << in.getGrade() << "." << std::endl;

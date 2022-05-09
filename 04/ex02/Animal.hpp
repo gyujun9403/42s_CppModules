@@ -9,8 +9,8 @@ class Animal
 	// ****************[canonical class form]****************
 protected:
 	// 🌟
-public:
 	Animal();								// default constructor
+public:
 	virtual ~Animal();						// destructor
 	Animal(const Animal& other);			// copy constructor
 	Animal& operator=(const Animal& other);	// (copy) assignment operator
