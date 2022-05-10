@@ -1,31 +1,29 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 #include <string>
 #include <exception>
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-// 🌟 error unknown type name 'Bureaucrat' occur when you don't make beSigned(...) in cpp
-class Bureaucrat;
+// 🌟 error unknown type name 'Form' occur when you don't make beSigned(...) in cpp
+class Form;
 
-class Form
+class Bureaucrat
 {
 	// ****************[canonical class form]****************
-private:
-	Form();									// default constructor
+protected:
+	Bureaucrat();									// default constructor
 public:
-	virtual ~Form();							// destructor
-	Form(const Form& other);			// copy constructor
-	Form& operator=(const Form& other);	// (copy) assignment operator
+	virtual ~Bureaucrat();							// destructor
+	Bureaucrat(const Bureaucrat& other);			// copy constructor
+	Bureaucrat& operator=(const Bureaucrat& other);	// (copy) assignment operator
 	// ******************************************************
 
 private:
 	static int MIN_GRADE;
 	static int MAX_GRADE;
 	const std::string name_;
-	const int signGrade_;
-	const int execGrade_;
-	bool signed_;
+	int grade_;
 
 	class GradeTooHighException: public std::exception
 	{
@@ -49,13 +47,14 @@ private:
 	};
 
 public:
-	Form(std::string name, int signGrade, int execGrade) throw(std::exception);
+	Bureaucrat(std::string name, int grade) throw(std::exception);
 	std::string getName() const;
-	int getExecGrade() const;
-	int getSignGrade() const;
-	bool isSigned() const;
-	bool beSigned(const Bureaucrat& bc) throw(std::exception);
+	int getGrade() const;
+	void incrementGrade(int up) throw(std::exception);
+	void decrementGrade(int down) throw(std::exception);
+	bool signForm(const Form& form);
+	bool executeForm(Form const & form);
 };
-std::ostream& operator<<(std::ostream& os, const Form& in);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& in);
 
 #endif

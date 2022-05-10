@@ -47,6 +47,11 @@ const char* Form::GradeTooLowException::what() const throw()
 	return this->message_.c_str();
 }
 
+const char* Form::GradeNotSignedException::what() const throw()
+{
+	return "This form not signed!";
+}
+
 Form::GradeTooHighException::~GradeTooHighException() throw() {return ;}
 Form::GradeTooLowException::~GradeTooLowException() throw() {return ;}
 

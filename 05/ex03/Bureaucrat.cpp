@@ -106,6 +106,19 @@ bool Bureaucrat::signForm(const Form& form)
 	}
 }
 
+bool Bureaucrat::executeForm(Form const & form)
+{
+	if (form.getExecGrade() >= this->getGrade())
+	{
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+		return true;
+	}
+	else
+	{
+		throw GradeTooLowException(this->getGrade(), form.getExecGrade());
+	}
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& in)
 {
 	return os << in.getName() << ", bureaucrat grade " << in.getGrade() << "." << std::endl;
