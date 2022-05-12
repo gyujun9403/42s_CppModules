@@ -3,6 +3,7 @@
 //
 
 #include "Zombie.hpp"
+#include <stdlib.h>
 
 Zombie* Zombie::zombieHorde(int N, std::string name)
 {
@@ -10,8 +11,7 @@ Zombie* Zombie::zombieHorde(int N, std::string name)
 
 	rt_horde = new Zombie[N];
 	for (int i = 0; i < N; i++) {
-		// static_cast : c++11
-		rt_horde[i].setName(name + numbering(N));
+		rt_horde[i].setName(name + this->numbering(i + 1));
 	}
 	return rt_horde;
 }

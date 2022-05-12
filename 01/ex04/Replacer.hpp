@@ -1,18 +1,25 @@
-#include "Reader.hpp"
-#include "Writer.hpp"
-#include <filesystem>
+#ifndef REPLACER_HPP
+#define REPLACER_HPP
+
+#include <iostream>
+#include <fstream>
+// c++ 11
+//#include <filesystem>
 
 class Replacer
 {
 private:
 	Replacer();
-	std::filesystem::path	org_;
-	std::filesystem::path	temp_;
-	std::fstream	fstreamOrg_;
-	std::fstream	fstreamTemp_;
-	std::string	lineReplace(std::string line);
+	bool			isFileClosed;
+	std::ifstream	fstreamOrg_;
+	std::ofstream	fstreamRpl_;
+	std::string	lineReplace(const std::string line, const std::string s1, const std::string s2) const;
 public:
-	Replacer(std::string fName);
+	Replacer(const std::string fName);
+	~Replacer();
 	bool	isReplacerUsable();
-	void	replace(std::string s1, std::string s2);
+	void	closeFiles();
+	void	replace(const std::string s1, const std::string s2);
 };
+
+#endif

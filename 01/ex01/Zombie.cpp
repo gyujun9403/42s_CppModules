@@ -31,8 +31,13 @@ std::string Zombie::numbering(int i)
 	std::string ret("");
 
 	if (i < 10)
-		ret = ret + (char)i;
+	{
+		ret += i + '0';
+	}
 	else
-		ret = (ret + numbering(i / 10) + (char)(i % 10));
+	{
+		ret += numbering(i / 10);
+		ret += (i % 10) + '0';
+	}
 	return (ret);
 }
