@@ -1,14 +1,15 @@
-#include "Data.hpp"
+#include "Input.hpp"
+#include <iostream>
 #include <cmath>
-//std::atof, std::strtod
-Data::Data()
+
+Input::Input()
 {
 	this->isCompiled_ = false;
 }
 
-Data::~Data() { ;}
+Input::~Input() { ;}
 
-Data::Data(const Data& other)
+Input::Input(const Input& other)
 {
 	this->isCompiled_ = other.isCompiled_;
 	this->inputStr_ = other.inputStr_;
@@ -18,7 +19,7 @@ Data::Data(const Data& other)
 	this->isCompiled_ = other.isCompiled_;
 }
 
-Data& Data::operator=(const Data& other)
+Input& Input::operator=(const Input& other)
 {
 	this->inputStr_ = other.inputStr_;
 	this->value_ = other.value_;
@@ -28,26 +29,41 @@ Data& Data::operator=(const Data& other)
 	return *this;
 }
 
-const char* Data::InvalidInputException::what() const throw()
-{
-	return "Invalid input.";
-}
-
-Data::Data(char* str) throw(std::exception)
+Input::Input(char* str) throw(InvalidInputException)
 {
 	if (str == NULL || str[0] == '\0')
-		throw (InvalidInputException());
+		throw (InvalidInputException("Input::Input(char* str)"));
 	this->inputStr_ = str;
 }
 
-void Data::compileData() throw(std::exception)
+void Input::compileInput() throw(InvalidInputException)
 {
 	char* pEnd;
 
 	this->value_ = std::strtod(this->inputStr_, &pEnd);
-	if (pEnd[0] != '\0' || pEnd[0] != 'f' || !std::isspace(pEnd[0]))
-		throw (InvalidInputException());
+	if (!(pEnd[0] == '\0' || pEnd[0] == 'f' || std::isspace(pEnd[0])))
+	 	throw (InvalidInputException("Input::compileInput()"));
 	this->isNan_ = std::isnan(this->value_);
 	this->isInf_ = std::isinf(this->value_);
 	this->isCompiled_ = true;
+}
+
+bool Input::isComiled()
+{
+	return this->isCompiled_;
+}
+
+double Input::getValue()
+{
+	return this->value_;
+}
+
+bool Input::isNan()
+{
+	return this->isNan_;
+}
+
+bool Input::isInf()
+{
+	return this->isInf_;
 }

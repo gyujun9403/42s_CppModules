@@ -1,8 +1,8 @@
-TARGET = harl
+TARGET = convert
 CPP = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
-SRCS = main.cpp Harl.cpp
+SRCS = main.cpp Input.cpp InvalidInputException.cpp ScalarChar.cpp Scalar.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(TARGET)
@@ -12,8 +12,8 @@ $(TARGET) : $(addprefix $(DIR), $(OBJS))
 	$(CPP) $(FLAGS) -o $@ -c $<
 clean :
 	rm -rf $(OBJS)
+	rm -rf *_shrubbery
 fclean : clean
 	rm -rf $(TARGET)
-	rm -rf *.replace
 re : fclean all
 .PHONY : all clean fclean re
