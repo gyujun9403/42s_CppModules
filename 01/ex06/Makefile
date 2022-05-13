@@ -1,4 +1,4 @@
-TARGET = harl
+TARGET = harlFilter
 CPP = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
