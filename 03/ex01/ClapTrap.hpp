@@ -14,15 +14,16 @@ public:
 	ClapTrap& operator=(const ClapTrap& other);	// (copy) assignment operator
 	// ******************************************************
 
+
 protected:
 	const static int INITIAL_HIT_POINT = 10;
 	const static int INITIAL_ENERGY_POINT = 10;
-	const static int INITIAL_ATTACK_DAMAGET = 0;
-
+	const static int INITIAL_ATTACK_DAMAGE = 0;
 	std::string name_;
 	int	hitPoint_;
 	int energyPoint_;
 	int attackDamage_;
+
 public:
 	ClapTrap(const std::string name);
 	void attack(std::string const & target);	// attack target to lose <attackDamage_>, cost 1 <energyPoint_>.

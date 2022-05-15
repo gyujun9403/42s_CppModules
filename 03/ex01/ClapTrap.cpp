@@ -30,7 +30,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 ClapTrap::ClapTrap(const std::string name)
 {
 	this->name_ = name;
-	this->attackDamage_ = INITIAL_ATTACK_DAMAGET;
+	this->attackDamage_ = INITIAL_ATTACK_DAMAGE;
 	this->hitPoint_ = INITIAL_HIT_POINT;
 	this->energyPoint_  = INITIAL_ENERGY_POINT;
 	std::cout << "ClapTrap(name) constructor called. " << std::endl;

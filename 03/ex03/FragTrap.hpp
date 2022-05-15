@@ -18,7 +18,7 @@ public:
 protected:
 	const static int INITIAL_HIT_POINT = 100;
 	const static int INITIAL_ENERGY_POINT = 100;
-	const static int INITIAL_ATTACK_DAMAGET = 30;
+	const static int INITIAL_ATTACK_DAMAGE = 30;
 
 public:
 	FragTrap(const std::string name);

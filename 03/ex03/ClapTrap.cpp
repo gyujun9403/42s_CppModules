@@ -32,7 +32,7 @@ ClapTrap::ClapTrap(const std::string name)
 {
 	// 🌟ClapTrap 생성자를 통해 생성한 이름 뒤에 _clap_name 붙이기🌟
 	this->name_ = name + "_clap_name";
-	this->attackDamage_ = INITIAL_ATTACK_DAMAGET;
+	this->attackDamage_ = INITIAL_ATTACK_DAMAGE;
 	this->hitPoint_ = INITIAL_HIT_POINT;
 	this->energyPoint_  = INITIAL_ENERGY_POINT;
 	std::cout << "ClapTrap(name) constructor called. " << std::endl;

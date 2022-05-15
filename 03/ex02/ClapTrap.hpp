@@ -17,7 +17,7 @@ public:
 protected:
 	const static int INITIAL_HIT_POINT = 10;
 	const static int INITIAL_ENERGY_POINT = 10;
-	const static int INITIAL_ATTACK_DAMAGET = 0;
+	const static int INITIAL_ATTACK_DAMAGE = 0;
 
 	std::string name_;
 	int	hitPoint_;

@@ -25,12 +25,14 @@ int main()
 	castedCat->getBrain().getIdea(0).assign("meow!");
 	castedCat->getBrain().getIdea(1).assign("meow!!");
 	castedCat->getBrain().getIdea(2).assign("meow!!!");
+	// 🌟 deep copy cat's brain!
 	copiedCat.getBrain() = castedCat->getBrain();
 
 	std::cout << copiedCat.getBrain().getIdea(0) << std::endl;
 	std::cout << copiedCat.getBrain().getIdea(1) << std::endl;
 	std::cout << copiedCat.getBrain().getIdea(2) << std::endl;
 
+	// 🌟 brain do deep copy. so, copiedCat takes no effect about delete arrAnimal[i];
 	for (int i = 0; i < ARR_SIZE; i++)
 	{
 		delete arrAnimal[i];

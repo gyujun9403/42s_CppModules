@@ -33,7 +33,7 @@ DiamondTrap::DiamondTrap(std::string name)
 	DiamondTrap::name_ = name;
 	this->hitPoint_ = FragTrap::INITIAL_HIT_POINT;
 	this->energyPoint_ = ScavTrap::INITIAL_ENERGY_POINT;
-	this->attackDamage_ = FragTrap::INITIAL_ATTACK_DAMAGET;
+	this->attackDamage_ = FragTrap::INITIAL_ATTACK_DAMAGE;
 	std::cout << "DiamondTrap(name) constructor called. " << std::endl;
 }
 
