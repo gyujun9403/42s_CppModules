@@ -21,7 +21,7 @@ Base* TypeFinder::generate(void)
 {
 	int randomThree;
 
-	srand(time(NULL));
+	srand(time(NULL) % rand());
 	randomThree = rand() % 3;
 	if (randomThree == 0)
 	{

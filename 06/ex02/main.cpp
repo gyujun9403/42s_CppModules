@@ -7,7 +7,7 @@
 int main()
 {
 	Base* ptr;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		ptr = TypeFinder::generate();
 		TypeFinder::identify(ptr);
