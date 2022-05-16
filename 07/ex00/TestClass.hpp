@@ -27,7 +27,7 @@ public:
 	std::string getName() const;
 	int getOld() const;
 };
-// const 붙여야함...
+// const 붙여야함... insertion
 std::ostream& operator<<(std::ostream& os, const TestClass& tc);
 
 #endif
