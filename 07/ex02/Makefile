@@ -1,4 +1,4 @@
-TARGET = ex01
+TARGET = ex02
 CPP = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
