@@ -26,7 +26,14 @@ public:
 	{
 		return this->size_;
 	}
-	T& operator[](unsigned int i) throw(std::exception)
+	// if not const func, error occur like below.
+	/*
+	candidate function not viable: 'this' argument has type 'const
+      Array<std::__1::basic_string<char> >', but method is not marked const
+        T& operator[](unsigned int i) throw(std::exception)
+           ^
+	*/
+	T& operator[](unsigned int i) const throw(std::exception)
 	{
 		if (i >= this->size_)
 			throw(OutOfBounceException());
@@ -34,11 +41,8 @@ public:
 	}
 	Array(unsigned int n)
 	{
+		//🌟 default값으로 초기화
 		this->a_ = new T[n];
-		for (unsigned int i = 0; i < n; i++)
-		{
-			this->a_[i] = 0;
-		}
 		this->size_ = n;
 	}
 
@@ -46,6 +50,7 @@ public:
 public:
 	Array()									// default constructor
 	{
+		//🌟 default값으로 초기화
 		a_ = new T[0];
 		size_ = 0;
 	}
@@ -62,10 +67,6 @@ public:
 			delete[] a_;
 		sizeOther = other.size();
 		a_ = new T[sizeOther];
-		for (unsigned int i = 0; i < sizeOther; i++)
-		{
-			a_[i] = other[i];
-		}
 	}
 	Array& operator=(const Array& other)	// (copy) assignment operator
 	{
@@ -75,10 +76,11 @@ public:
 			delete[] a_;
 		sizeOther = other.size();
 		a_ = new T[sizeOther];
-		for (int i = 0; i < sizeOther; i++)
+		for (unsigned int i = 0; i < sizeOther; i++)
 		{
 			a_[i] = other[i];
 		}
+		this->size_ = sizeOther;
 		return *this;
 	}
 	// ******************************************************

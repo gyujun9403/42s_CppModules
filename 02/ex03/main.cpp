@@ -10,6 +10,10 @@ int main( void ) {
   std::cout << a << std::endl;
   std::cout << a++ << std::endl;
   std::cout << a << std::endl;
+  
+  // 이거 해야하나?
+  std::cout << a + 1 << std::endl;
+  std::cout << 1 + a << std::endl;
 
   std::cout << b << std::endl;
 
