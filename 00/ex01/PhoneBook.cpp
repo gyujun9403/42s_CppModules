@@ -4,17 +4,19 @@ void PhoneBook::addPage()
 {
 	static int idx = 0;
 
-	this->page[idx].setContact();
+	this->page_[idx].setContact();
 	idx = (idx + 1) % 8;
 }
 
 void PhoneBook::searchPage()
 {
 	for (int i = 0; i < 8; i++)
-		this->page[i].prtContactSimple(i + 1);
+	{
+		this->page_[i].prtContactSimple(i + 1);
+	}
 }
 
 void PhoneBook::searchPage(int idx)
 {
-	this->page[idx - 1].prtContact();
+	this->page_[idx - 1].prtContact();
 }

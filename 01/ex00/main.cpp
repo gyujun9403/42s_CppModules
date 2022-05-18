@@ -12,5 +12,6 @@ int main()
 	leon->announce();
 	leon->randomChump("Marvin");
 	delete leon;
+	//system("leaks ex00");
 	return 0;
 }

@@ -17,5 +17,4 @@ public:
 	void setType(std::string type);
 };
 
-
 #endif //INC_01_WEAPON_HPP

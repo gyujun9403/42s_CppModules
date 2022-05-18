@@ -12,5 +12,6 @@ int main()
 	for (int i = 0; i < NUM_OF_ZOMBIES_IN_HORDE; i++)
 		horde[i].announce();
 	delete[] horde;
+	//system("leaks ex01");
 	return 0;
 }

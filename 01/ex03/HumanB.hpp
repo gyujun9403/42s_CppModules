@@ -12,8 +12,8 @@
 class HumanB {
 private:
 	std::string	name_;
-	// HumanA와 차이점.
-	std::string	weapon_;
+	// 🌟 difference with bHumanA
+	Weapon	weapon_;
 	HumanB();
 public:
 	HumanB(std::string name);

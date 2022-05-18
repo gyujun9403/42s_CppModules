@@ -23,8 +23,6 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	// a value of type "void (Harl::*)()" cannot be used to initialize an entity of type "void (*)()"
-	//void (*funcPtr[4])(void) = {Harl::debug, Harl::info, Harl::warning, Harl::error};
 	void (Harl::*funcPtr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
@@ -34,5 +32,3 @@ void Harl::complain(std::string level)
 			(this->*funcPtr[i])();
 	}
 }
-
-// ref : https://junk-s.tistory.com/38

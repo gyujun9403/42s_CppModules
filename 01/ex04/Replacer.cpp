@@ -47,7 +47,6 @@ std::string	Replacer::lineReplace(const std::string line, const std::string s1, 
 		{
 			ret.append(line, start, end - start);
 			ret.append(s2);
-			std::cout << ret << std::endl;
 		}
 		start = end + s1.length();
 	}
@@ -76,11 +75,3 @@ void Replacer::closeFiles()
 	this->fstreamRpl_.close();
 	this->isFileClosed = true;
 }
-
-/*
-open : https://www.cplusplus.com/reference/fstream/fstream/open/
-fstream 읽고 쓰기 : https://corinediary.tistory.com/10
-string find : https://modoocode.com/241
-string append : https://modoocode.com/307
-c++ file system : https://modoocode.com/306, https://jjeongil.tistory.com/1024?category=686124
-*/

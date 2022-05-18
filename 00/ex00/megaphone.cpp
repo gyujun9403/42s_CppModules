@@ -3,10 +3,9 @@
 class Megaphone
 {
 private:
-	int	num_of_str_;
-	std::string *strs;
+	int	numOfStr_;
+	std::string *strs_;
 	Megaphone();
-private:
 	void prtStrs();
 public:
 	Megaphone(int ac, char **av);
@@ -14,40 +13,53 @@ public:
 	void MakeAwake();
 };
 
-Megaphone::Megaphone(int ac, char **av) : num_of_str_(ac - 1)
+Megaphone::Megaphone(int ac, char **av) : numOfStr_(ac - 1)
 {
-	if (num_of_str_ > 0) {
-		strs = new std::string[num_of_str_];
-		for (int i = 0; i < num_of_str_; i++)
-			(strs[i]).assign(av[i + 1]);
+	if (numOfStr_ > 0)
+	{
+		strs_ = new std::string[numOfStr_];
+		for (int i = 0; i < numOfStr_; i++)
+		{
+			(strs_[i]).assign(av[i + 1]);
+		}
 	}
 	else
-		strs = NULL;
+	{
+		strs_ = NULL;
+	}
 }
 
 void Megaphone::prtStrs()
 {
-	for (int i = 0; i < this->num_of_str_; i++) {
-		for (std::string::size_type j = 0; j < this->strs[i].size(); j++) {
-			if (this->strs[i][j] >= 'a' && this->strs[i][j] <= 'z')
-				this->strs[i][j] -= 32;
+	for (int i = 0; i < this->numOfStr_; i++)
+	{
+		for (std::string::size_type j = 0; j < this->strs_[i].size(); j++)
+		{
+			if (this->strs_[i][j] >= 'a' && this->strs_[i][j] <= 'z')
+			{
+				this->strs_[i][j] -= 32;
+			}
 		}
-		std::cout << this->strs[i];
+		std::cout << this->strs_[i];
 	}
 	std::cout << std::endl;
 }
 
 void Megaphone::MakeAwake()
 {
-	if (num_of_str_ == 0)
+	if (numOfStr_ == 0)
+	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+	}
 	else
+	{
 		prtStrs();
+	}
 }
 
 Megaphone::~Megaphone()
 {
-	delete[] strs;
+	delete[] strs_;
 }
 
 

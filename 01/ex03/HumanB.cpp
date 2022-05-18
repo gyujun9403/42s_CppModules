@@ -5,23 +5,23 @@
 #include "HumanB.hpp"
 
 HumanB::HumanB(std::string name)
+: weapon_("His hands")
 {
 	this->name_ = name;
-	this->weapon_ = "His hands";
 }
 
 HumanB::HumanB(std::string name, Weapon& weapon)
+: weapon_(weapon.getType())
 {
 	this->name_ = name;
-	this->weapon_ = weapon.getType();
 }
 
 void HumanB::setWeapon(Weapon& weapon)
 {
-	this->weapon_ = weapon.getType();
+	this->weapon_.setType(weapon.getType());
 }
 
 void HumanB::attack()
 {
-	std::cout << name_ << " attacks with his " << weapon_ << std::endl;
+	std::cout << name_ << " attacks with his " << weapon_.getType() << std::endl;
 }

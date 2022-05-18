@@ -5,7 +5,7 @@
 
 class PhoneBook {
 private:
-	Contact page[8];
+	Contact page_[8];
 public:
 	void addPage();
 	void searchPage();

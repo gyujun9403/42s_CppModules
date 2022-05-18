@@ -78,23 +78,23 @@ bool	Account::makeWithdrawal(int withdrawal)
 
 void	Account::_displayTimestamp(void)
 {
-	 std::cout << "[19920104_091532] ";
-//	std::time_t t = std::time(0);
-//    std::tm* now = std::localtime(&t);
-//	std::cout << "[" << (now->tm_year + 1900);
-//	std::cout.width(2);
-//	std::cout.fill('0');
-//	std::cout << (now->tm_mon + 1) << now->tm_mday;
-//	std::cout << "_";
-//	std::cout.width(2);
-//	std::cout.fill('0');
-//	std::cout << now->tm_hour;
-//	std::cout.width(2);
-//	std::cout.fill('0');
-//	std::cout << now->tm_min;
-//	std::cout.width(2);
-//	std::cout.fill('0');
-//	std::cout << now->tm_sec << "] ";
+	// std::cout << "[19920104_091532] ";
+	std::time_t t = std::time(0);
+	std::tm* now = std::localtime(&t);
+	std::cout << "[" << (now->tm_year + 1900);
+	std::cout.width(2);
+	std::cout.fill('0');
+	std::cout << (now->tm_mon + 1) << now->tm_mday;
+	std::cout << "_";
+	std::cout.width(2);
+	std::cout.fill('0');
+	std::cout << now->tm_hour;
+	std::cout.width(2);
+	std::cout.fill('0');
+	std::cout << now->tm_min;
+	std::cout.width(2);
+	std::cout.fill('0');
+	std::cout << now->tm_sec << "] ";
 }
 
 void	Account::displayStatus(void) const

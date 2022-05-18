@@ -12,8 +12,7 @@
 class HumanA {
 private:
 	std::string			name_;
-	// const가 없다면?
-	const std::string&	weapon_;
+	Weapon&	weapon_;
 	HumanA();
 public:
 	HumanA(std::string name, Weapon& weapon);
