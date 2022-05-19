@@ -23,6 +23,7 @@ protected:
 	int	hitPoint_;
 	int energyPoint_;
 	int attackDamage_;
+	
 public:
 	ClapTrap(const std::string name);
 	void attack(std::string const & target);	// attack target to lose <attackDamage_>, cost 1 <energyPoint_>.

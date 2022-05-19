@@ -8,20 +8,20 @@ Fixed::Fixed()
 	this->fixPointValue_ = 0;
 }
 
+// const도 인자로 전달될수 있게 하기 위해 const를 쓴다.
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Assignation operator called" << std::endl;
-	// 참고 : 같은 클래스끼리는 private 접근 가능
-	// this->fixPointValue_ = other.fixPointValue_;
-	this->fixPointValue_ = other.getRawBits();
+	std::cout << "Copy assignation operator called" << std::endl;
+	this->fixPointValue_ = other.fixPointValue_;
 	return *this;
 }
 
 Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	// Fixed::operator= called
 	*this = other;
-	this->fixPointValue_ = other.fixPointValue_;
+	//this->fixPointValue_ = other.fixPointValue_;
 }
 
 int Fixed::getRawBits(void) const

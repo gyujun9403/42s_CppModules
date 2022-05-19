@@ -3,16 +3,16 @@
 
 int main()
 {
-	ClapTrap tom("Tom");
-	FragTrap tam("Tam");
+	ClapTrap tom("tom");
+	FragTrap tam("tam");
 	std::cout << "------------------------------------------" << std::endl;
 
 	tam.highFivesGuys();
 	tom.setAttackDamage(2);
 	std::cout << "tom spell damage buff!!. tom's attack damage is " << tom.getAttackDamage() << std::endl;
-	tom.attack("Tam");
+	tom.attack("tam");
 	tam.takeDamage(tom.getAttackDamage());
-	//std::cout << "🌟 🌟 🌟 🌟 🌟 🌟 🌟 🌟" << std::endl;
+	
 	tam.attack("tom");
 	tom.takeDamage(tam.getAttackDamage());
 	std::cout << "tom's HP is " << tom.getHitPoint() << "." << std::endl;
@@ -20,7 +20,7 @@ int main()
 	std::cout << "\ntom takes HERO damage buff!!." << std::endl;
 	tom.setAttackDamage(4294967295);
 	std::cout << "tom's attack damage is " << tom.getAttackDamage() << std::endl;
-	tom.attack("Tam");
+	tom.attack("tam");
 	tam.takeDamage(tom.getAttackDamage());
 	std::cout << "tam's HP is " << tam.getHitPoint() << "." << std::endl;
 

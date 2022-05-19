@@ -57,6 +57,8 @@ Fixed Fixed::operator-(const Fixed& other) const
 
 Fixed Fixed::operator*(const Fixed& other) const
 {
+	// int값 가지고 있는거끼리 곱하고 shift연산을하는게 더 나은드.
+	// 이점이 없음
 	Fixed ret(this->toFloat() * other.toFloat());
 
 	return ret;
@@ -104,7 +106,7 @@ Fixed& Fixed::operator--()
 Fixed::Fixed(const Fixed& other)
 {
 	*this = other;
-	this->fixPointValue_ = other.fixPointValue_;
+	//this->fixPointValue_ = other.fixPointValue_;
 }
 
 Fixed::Fixed(const int data)
@@ -152,6 +154,7 @@ Fixed& Fixed::min(Fixed& one, Fixed& another)
 
 Fixed& Fixed::max(Fixed& one, Fixed& another)
 {
+	//toFloat()안하고 정수값 가지고 있는걸로 비교해도 됨.
 	if (one.toFloat() > another.toFloat())
 		return one;
 	else

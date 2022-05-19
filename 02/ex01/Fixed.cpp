@@ -20,7 +20,7 @@ Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
-	this->fixPointValue_ = other.fixPointValue_;
+	//this->fixPointValue_ = other.fixPointValue_;
 }
 
 Fixed::Fixed(const int data)
@@ -28,10 +28,12 @@ Fixed::Fixed(const int data)
 	std::cout << "Int constructor called" << std::endl;
 	this->fixPointValue_ = data << this->fractionalBits_;
 }
+
 Fixed::Fixed(const float data)
 {
 	std::cout << "Float constructor called" << std::endl;
 	this->fixPointValue_
+		// static<int>()사용할것 -> 일관성.
 		= (int)roundf(data * (1 << this->fractionalBits_));
 }
 

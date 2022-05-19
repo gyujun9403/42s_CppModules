@@ -14,14 +14,15 @@ public:
 	ScavTrap& operator=(const ScavTrap& other);	// (copy) assignment operator
 	// ******************************************************
 
-protected:
+//protected:
+private:
 	const static int INITIAL_HIT_POINT = 100;
 	const static int INITIAL_ENERGY_POINT = 50;
 	const static int INITIAL_ATTACK_DAMAGE = 20;
 
 public:
 	ScavTrap(const std::string name);
-	void ScavTrap::attack(std::string const & target);
+	void attack(std::string const & target);
 	void guardGate();
 };
 
