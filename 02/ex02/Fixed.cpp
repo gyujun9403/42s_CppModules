@@ -1,8 +1,6 @@
 #include "Fixed.hpp"
 #include <cmath>
 
-int Fixed::fractionalBits_ = 8;
-
 Fixed::Fixed()
 {
 	this->fixPointValue_ = 0;
@@ -43,30 +41,42 @@ bool Fixed::operator<=(const Fixed& other) const
 // arithmetic Fixed::operator
 Fixed Fixed::operator+(const Fixed& other) const
 {
-	Fixed ret(this->toFloat() + other.toFloat());
+	// before
+	//Fixed ret(this->toFloat() + other.toFloat()); -> It didn't take advantage of fixed-point.
+	// after
+	Fixed ret(this->fixPointValue_ + other.fixPointValue_);
 
 	return ret;
 }
 
 Fixed Fixed::operator-(const Fixed& other) const
 {
-	Fixed ret(this->toFloat() - other.toFloat());
+	// before
+	//Fixed ret(this->toFloat() - other.toFloat());
+	// after
+	Fixed ret(this->fixPointValue_ - other.fixPointValue_);
 
 	return ret;
 }
 
 Fixed Fixed::operator*(const Fixed& other) const
 {
-	// int값 가지고 있는거끼리 곱하고 shift연산을하는게 더 나은드.
-	// 이점이 없음
-	Fixed ret(this->toFloat() * other.toFloat());
+	// before
+	//Fixed ret(this->toFloat() * other.toFloat());
+	// after
+	long long temp = this->fixPointValue_ * other.fixPointValue_;
+	Fixed ret(static_cast<int>(temp >> 8));
 
 	return ret;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const
 {
-	Fixed ret(this->toFloat() / other.toFloat());
+	// before
+	//Fixed ret(this->toFloat() / other.toFloat());
+	// after
+	long long temp = this->fixPointValue_ << 8;
+	Fixed ret(static_cast<int>(temp / other.fixPointValue_));
 
 	return ret;
 }

@@ -6,7 +6,7 @@ class Fixed
 {
 private:
 	int fixPointValue_;
-	static int fractionalBits_;
+	const static int fractionalBits_ = 8;
 public: 
 	// ********[canonical class form]********
 	Fixed();								// default constructor
