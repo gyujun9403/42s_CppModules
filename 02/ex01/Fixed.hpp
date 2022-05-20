@@ -6,7 +6,7 @@ class Fixed
 {
 private:
 	int fixPointValue_;
-	static int fractionalBits_;
+	const static int fractionalBits_ = 8;
 public: 
 	// ********[canonical class form]********
 	Fixed();								// default constructor
@@ -22,6 +22,13 @@ public:
 	Fixed(const float data);
 	float toFloat( void ) const;
 	int toInt( void ) const;
+
+	// ⬇️ this op overriding fixA << fixB. That equals fixA.opeartor<<(fixB). not std::cout << fixB.
+	//std::ostream& operator<<(const Fixed& fixed);
+	// ⬇️ [❌error] too many parameters for this operator functionC/C++(344)
 	//std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 };
+
+// 🌟Stream extraction and insertion op should be overrided at out side of class.
+// Below define std::cout << fixA, that equals operator<<(std::cout, fixA).
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);

@@ -1,8 +1,6 @@
 #include "Fixed.hpp"
 #include <cmath>
 
-int Fixed::fractionalBits_ = 8;
-
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -20,7 +18,6 @@ Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
-	//this->fixPointValue_ = other.fixPointValue_;
 }
 
 Fixed::Fixed(const int data)
@@ -33,8 +30,7 @@ Fixed::Fixed(const float data)
 {
 	std::cout << "Float constructor called" << std::endl;
 	this->fixPointValue_
-		// static<int>()사용할것 -> 일관성.
-		= (int)roundf(data * (1 << this->fractionalBits_));
+		= static_cast<int>(roundf(data * (1 << this->fractionalBits_)));
 }
 
 int Fixed::getRawBits(void) const
@@ -58,7 +54,6 @@ int Fixed::toInt(void) const
 	return static_cast<int>(this->toFloat());
 }
 
-//float Fixed::operator<<(const Fixed& fixed)
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 {
 	os << fixed.toFloat();

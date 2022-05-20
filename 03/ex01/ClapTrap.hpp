@@ -14,7 +14,6 @@ public:
 	ClapTrap& operator=(const ClapTrap& other);	// (copy) assignment operator
 	// ******************************************************
 
-
 protected:
 	const static int INITIAL_HIT_POINT = 10;
 	const static int INITIAL_ENERGY_POINT = 10;
