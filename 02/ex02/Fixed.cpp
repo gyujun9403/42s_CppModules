@@ -41,7 +41,7 @@ Fixed Fixed::operator+(const Fixed& other) const
 {
 	// before
 	//Fixed ret(this->toFloat() + other.toFloat()); -> It didn't take advantage of fixed-point.
-	// after
+	// 🌟after
 	Fixed ret(this->fixPointValue_ + other.fixPointValue_);
 
 	return ret;
@@ -51,7 +51,7 @@ Fixed Fixed::operator-(const Fixed& other) const
 {
 	// before
 	//Fixed ret(this->toFloat() - other.toFloat());
-	// after
+	// 🌟after
 	Fixed ret(this->fixPointValue_ - other.fixPointValue_);
 
 	return ret;
@@ -61,7 +61,7 @@ Fixed Fixed::operator*(const Fixed& other) const
 {
 	// before
 	//Fixed ret(this->toFloat() * other.toFloat());
-	// after
+	// 🌟after
 	Fixed ret;
 
 	ret.setRawBits(this->fixPointValue_ * other.fixPointValue_ / (1 << this->fractionalBits_));
@@ -73,7 +73,7 @@ Fixed Fixed::operator/(const Fixed& other) const
 {
 	// before
 	//Fixed ret(this->toFloat() / other.toFloat());
-	// after
+	// 🌟after
 	Fixed ret(static_cast<float>(this->fixPointValue_) / other.fixPointValue_);
 
 	return ret;

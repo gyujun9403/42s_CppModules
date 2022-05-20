@@ -22,6 +22,7 @@ public:
 	Fixed(const float data);
 	float toFloat( void ) const;
 	int toInt( void ) const;
+
 	// comparison operators
 	bool operator==(const Fixed& other) const;
 	bool operator>(const Fixed& other) const;
@@ -32,6 +33,7 @@ public:
 	// arithmetic operator
 	Fixed operator+(const Fixed& other) const;
 	Fixed operator-(const Fixed& other) const;
+
 	//Fixed operator*(Fixed& other);
 	Fixed operator*(const Fixed& other) const;
 	Fixed operator/(const Fixed& other) const;
@@ -43,6 +45,7 @@ public:
 	// prefix increment and decrement operator
 	Fixed& operator++();
 	Fixed& operator--();
+	
 	//std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 	static Fixed& min(Fixed& one, Fixed& another);
 	static Fixed& max(Fixed& one, Fixed& another);
