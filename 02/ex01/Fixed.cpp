@@ -39,7 +39,7 @@ int Fixed::getRawBits(void) const
 	return this->fixPointValue_;
 }
 
-void Fixed::setRawBit(int const raw)
+void Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->fixPointValue_ = raw;

@@ -62,8 +62,9 @@ Fixed Fixed::operator*(const Fixed& other) const
 	// before
 	//Fixed ret(this->toFloat() * other.toFloat());
 	// after
-	long long temp = this->fixPointValue_ * other.fixPointValue_;
-	Fixed ret(static_cast<int>(temp >> 8));
+	Fixed ret;
+
+	ret.setRawBits(this->fixPointValue_ * other.fixPointValue_ / (1 << this->fractionalBits_));
 
 	return ret;
 }
@@ -73,8 +74,7 @@ Fixed Fixed::operator/(const Fixed& other) const
 	// before
 	//Fixed ret(this->toFloat() / other.toFloat());
 	// after
-	long long temp = this->fixPointValue_ << 8;
-	Fixed ret(static_cast<int>(temp / other.fixPointValue_));
+	Fixed ret(static_cast<float>(this->fixPointValue_) / other.fixPointValue_);
 
 	return ret;
 }
@@ -121,8 +121,7 @@ Fixed::Fixed(const int data)
 
 Fixed::Fixed(const float data)
 {
-	this->fixPointValue_
-		= static_cast<int>(data * (1 << this->fractionalBits_));
+	this->fixPointValue_ = static_cast<int>(roundf(data * (1 << this->fractionalBits_)));
 }
 
 int Fixed::getRawBits(void) const
@@ -130,7 +129,7 @@ int Fixed::getRawBits(void) const
 	return this->fixPointValue_;
 }
 
-void Fixed::setRawBit(int const raw)
+void Fixed::setRawBits(int const raw)
 {
 	this->fixPointValue_ = raw;
 }
@@ -139,6 +138,7 @@ float Fixed::toFloat(void) const
 {
 	return static_cast<float>(this->fixPointValue_) / (1 << this->fractionalBits_);
 }
+
 int Fixed::toInt(void) const
 {
 	return this->fixPointValue_ / (1 << this->fractionalBits_);

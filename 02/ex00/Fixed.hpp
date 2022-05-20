@@ -18,5 +18,5 @@ public:
 	// **************************************
 
 	int getRawBits(void) const;
-	void setRawBit(int const raw);
+	void setRawBits(int const raw);
 };
