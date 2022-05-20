@@ -12,7 +12,6 @@ Fixed& Fixed::operator=(const Fixed& other)
 	return *this;
 }
 
-// comparison operators
 bool Fixed::operator==(const Fixed& other) const
 {
 	return (this->fixPointValue_ == other.fixPointValue_);
@@ -38,38 +37,48 @@ bool Fixed::operator<=(const Fixed& other) const
 	return (this->fixPointValue_ <= other.fixPointValue_);
 }
 
-// arithmetic Fixed::operator
 Fixed Fixed::operator+(const Fixed& other) const
 {
-	Fixed ret(this->toFloat() + other.toFloat());
+	// before
+	//Fixed ret(this->toFloat() + other.toFloat()); -> It didn't take advantage of fixed-point.
+	// after
+	Fixed ret(this->fixPointValue_ + other.fixPointValue_);
 
 	return ret;
 }
 
 Fixed Fixed::operator-(const Fixed& other) const
 {
-	Fixed ret(this->toFloat() - other.toFloat());
+	// before
+	//Fixed ret(this->toFloat() - other.toFloat());
+	// after
+	Fixed ret(this->fixPointValue_ - other.fixPointValue_);
 
 	return ret;
 }
 
 Fixed Fixed::operator*(const Fixed& other) const
 {
-	// int값 가지고 있는거끼리 곱하고 shift연산을하는게 더 나은드.
-	// 이점이 없음
-	Fixed ret(this->toFloat() * other.toFloat());
+	// before
+	//Fixed ret(this->toFloat() * other.toFloat());
+	// after
+	long long temp = this->fixPointValue_ * other.fixPointValue_;
+	Fixed ret(static_cast<int>(temp >> 8));
 
 	return ret;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const
 {
-	Fixed ret(this->toFloat() / other.toFloat());
+	// before
+	//Fixed ret(this->toFloat() / other.toFloat());
+	// after
+	long long temp = this->fixPointValue_ << 8;
+	Fixed ret(static_cast<int>(temp / other.fixPointValue_));
 
 	return ret;
 }
 
-// postfix increment and decrement Fixed::operator
 Fixed Fixed::operator++(int)
 {
 	Fixed ret;
@@ -88,7 +97,6 @@ Fixed Fixed::operator--(int)
 	return ret;
 }
 
-// prefix increment and decrement Fixed::operator
 Fixed& Fixed::operator++()
 {
 	this->fixPointValue_ += 1;
@@ -104,17 +112,17 @@ Fixed& Fixed::operator--()
 Fixed::Fixed(const Fixed& other)
 {
 	*this = other;
-	//this->fixPointValue_ = other.fixPointValue_;
 }
 
 Fixed::Fixed(const int data)
 {
 	this->fixPointValue_ = data << this->fractionalBits_;
 }
+
 Fixed::Fixed(const float data)
 {
 	this->fixPointValue_
-		= (int)roundf(data * (1 << this->fractionalBits_));
+		= static_cast<int>(data * (1 << this->fractionalBits_));
 }
 
 int Fixed::getRawBits(void) const
@@ -133,7 +141,7 @@ float Fixed::toFloat(void) const
 }
 int Fixed::toInt(void) const
 {
-	return static_cast<int>(this->toFloat());
+	return this->fixPointValue_ / (1 << this->fractionalBits_);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
@@ -144,7 +152,7 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 
 Fixed& Fixed::min(Fixed& one, Fixed& another)
 {
-	if (one.toFloat() > another.toFloat())
+	if (one.fixPointValue_ > another.fixPointValue_)
 		return another;
 	else
 		return one;
@@ -152,8 +160,7 @@ Fixed& Fixed::min(Fixed& one, Fixed& another)
 
 Fixed& Fixed::max(Fixed& one, Fixed& another)
 {
-	//toFloat()안하고 정수값 가지고 있는걸로 비교해도 됨.
-	if (one.toFloat() > another.toFloat())
+	if (one.fixPointValue_ > another.fixPointValue_)
 		return one;
 	else
 		return another;
@@ -161,7 +168,7 @@ Fixed& Fixed::max(Fixed& one, Fixed& another)
 
 const Fixed& Fixed::min(const Fixed& one, const Fixed& another)
 {
-	if (one.toFloat() > another.toFloat())
+	if (one.fixPointValue_ > another.fixPointValue_)
 		return another;
 	else
 		return one;
@@ -169,7 +176,7 @@ const Fixed& Fixed::min(const Fixed& one, const Fixed& another)
 
 const Fixed& Fixed::max(const Fixed& one, const Fixed& another)
 {
-	if (one.toFloat() > another.toFloat())
+	if (one.fixPointValue_ > another.fixPointValue_)
 		return one;
 	else
 		return another;
