@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
@@ -53,3 +54,5 @@ public:
 	static const Fixed& max(const Fixed& one, const Fixed& another);
 };
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+
+#endif

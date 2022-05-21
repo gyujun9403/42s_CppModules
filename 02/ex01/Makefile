@@ -1,6 +1,6 @@
 TARGET = ex01
 CPP = c++
-FLAGS = -std=c++98 -Wall -Wextra -Werror -g
+FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
 SRCS = Fixed.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)

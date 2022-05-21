@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
@@ -32,3 +33,5 @@ public:
 // 🌟Stream extraction and insertion op should be overrided at out side of class.
 // Below define std::cout << fixA, that equals operator<<(std::cout, fixA).
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+
+#endif

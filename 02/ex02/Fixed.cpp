@@ -42,7 +42,8 @@ Fixed Fixed::operator+(const Fixed& other) const
 	// before
 	//Fixed ret(this->toFloat() + other.toFloat()); -> It didn't take advantage of fixed-point.
 	// 🌟after
-	Fixed ret(this->fixPointValue_ + other.fixPointValue_);
+	Fixed ret;
+	ret.setRawBits(this->fixPointValue_ + other.fixPointValue_);
 
 	return ret;
 }
