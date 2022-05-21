@@ -4,25 +4,30 @@
 int main()
 {
 	ClapTrap tom("tom");
-	FragTrap tam("tam");
+	FragTrap jack("jack");
 	std::cout << "------------------------------------------" << std::endl;
 
-	tam.highFivesGuys();
+	jack.highFivesGuys();
 	tom.setAttackDamage(2);
-	std::cout << "tom spell damage buff!!. tom's attack damage is " << tom.getAttackDamage() << std::endl;
-	tom.attack("tam");
-	tam.takeDamage(tom.getAttackDamage());
-	
-	tam.attack("tom");
-	tom.takeDamage(tam.getAttackDamage());
+	std::cout << "tom spell damage buff!! tom's attack damage is " << tom.getAttackDamage() << std::endl;
+	tom.attack("jack");
+	jack.takeDamage(tom.getAttackDamage());
+	jack.attack("tom");
+	tom.takeDamage(jack.getAttackDamage());
 	std::cout << "tom's HP is " << tom.getHitPoint() << "." << std::endl;
-	std::cout << "tam's HP is " << tam.getHitPoint() << "." << std::endl;
-	std::cout << "\ntom takes HERO damage buff!!." << std::endl;
+	std::cout << "jack's HP is " << jack.getHitPoint() << "." << std::endl;
+	for (int i = 0; i < 100; ++i)
+	{
+		jack.beRepaired(1);
+	}
+	std::cout << "jack HP :" << jack.getHitPoint() << std::endl;
+
+	std::cout << "\ntom takes HERO damage buff!!" << std::endl;
 	tom.setAttackDamage(4294967295);
 	std::cout << "tom's attack damage is " << tom.getAttackDamage() << std::endl;
-	tom.attack("tam");
-	tam.takeDamage(tom.getAttackDamage());
-	std::cout << "tam's HP is " << tam.getHitPoint() << "." << std::endl;
+	tom.attack("jack");
+	jack.takeDamage(tom.getAttackDamage());
+	std::cout << "jack's HP is " << jack.getHitPoint() << "." << std::endl;
 
 	std::cout << "------------------------------------------" << std::endl;
 	return (0);

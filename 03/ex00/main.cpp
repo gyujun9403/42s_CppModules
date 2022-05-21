@@ -15,12 +15,20 @@ int main()
 	int tempHP = tam.getHitPoint();
 	tam.beRepaired(1);
 	std::cout << "tam's HP become " << tempHP << " to " << tam.getHitPoint() << "." << std::endl;
+	
+	for (int i = 0; i < 10; ++i)
+	{
+		tam.beRepaired(1);
+	}
+	tam.attack("tom");
+
 	std::cout << "\ntom takes HERO damage buff!!." << std::endl;
 	tom.setAttackDamage(4294967295);
 	std::cout << "tom's attack damage is " << tom.getAttackDamage() << std::endl;
+	tempHP = tam.getHitPoint();
 	tom.attack("Tam");
 	tam.takeDamage(tom.getAttackDamage());
-	std::cout << "tam's HP is " << tam.getHitPoint() << "." << std::endl;
+	std::cout << "tam's HP become " << tempHP << " to " << tam.getHitPoint() << "." << std::endl;
 
 	std::cout << "------------------------------------------" << std::endl;
 	return (0);

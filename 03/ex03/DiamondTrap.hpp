@@ -13,7 +13,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 private:
 	DiamondTrap();									// default constructor
 public:
-	~DiamondTrap();									// destructor
+	virtual ~DiamondTrap();									// destructor
 	DiamondTrap(const DiamondTrap& other);			// copy constructor
 	DiamondTrap& operator=(const DiamondTrap& other);	// (copy) assignment operator
 	// ******************************************************	
@@ -22,12 +22,13 @@ private:
 	std::string name_;
 public:
 	DiamondTrap(std::string name);
-	// 이미있는걸 한번 더 선언 한 것. 사용할때 ::을 통해서 한정지어야 한다.
-	// ScavTrap::attack(std::string const & target);
-	// 🌟 주석처리 해서 multiple base classes of different types에러 띄우기
+	// ⬇️this defines ScavTrap::attack twice in ScavTrapn and here.
+	//void ScavTrap::attack(std::string const & target);
+	// ⬇️[❌error] multiple base classes of different types
 	void attack(std::string const & target);
 	std::string getName() const;
 	void whoAmI();
+	virtual int getInitHP() const;
 };
 
 #endif

@@ -3,16 +3,14 @@
 
 #include "ClapTrap.hpp"
 
-// 🌟ClapTrapd을 가상 상속하여, 이후에 FragTrap을 상속받을 클래스에서 발생할 중복 상속 문제 해결.
-//class FragTrap : virtual public ClapTrap
 class FragTrap : public ClapTrap
 {
 	// ****************[canonical class form]****************
 private:
 	FragTrap();								// default constructor
 public:
-	~FragTrap();							// destructor
-	FragTrap(const ClapTrap& other);			// copy constructor
+	virtual ~FragTrap();							// destructor
+	FragTrap(const FragTrap& other);			// copy constructor
 	FragTrap& operator=(const FragTrap& other);	// (copy) assignment operator
 	// ******************************************************
 
@@ -23,8 +21,9 @@ private:
 
 public:
 	FragTrap(const std::string name);
-	void FragTrap::attack(std::string const & target);
+	void attack(std::string const & target);
 	void highFivesGuys(void);
+	virtual int getInitHP() const;
 };
 
 #endif

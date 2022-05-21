@@ -30,4 +30,5 @@ public:
 	int getEnergyPoint() const;
 	int getAttackDamage() const;
 	void setAttackDamage(const unsigned int attackDamage);
+	virtual int getInitHP() const;
 };

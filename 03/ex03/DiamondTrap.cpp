@@ -28,9 +28,10 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 }
 
 DiamondTrap::DiamondTrap(std::string name)
-: ClapTrap(name)
+//: ClapTrap(name + "_clap_name") -> if call this, set hitPoint_...etc once again.
 {
 	DiamondTrap::name_ = name;
+	ClapTrap::name_ = name + "_clap_name";
 	this->hitPoint_ = FragTrap::INITIAL_HIT_POINT;
 	this->energyPoint_ = ScavTrap::INITIAL_ENERGY_POINT;
 	this->attackDamage_ = FragTrap::INITIAL_ATTACK_DAMAGE;
@@ -52,4 +53,9 @@ void DiamondTrap::whoAmI()
 {
 	std::cout << "1. ClapTrap's name :" << ClapTrap::getName() << std::endl;
 	std::cout << "2. DiamondTrap's name :" << DiamondTrap::getName() << std::endl;
+}
+
+int DiamondTrap::getInitHP() const
+{
+	return FragTrap::INITIAL_HIT_POINT;
 }

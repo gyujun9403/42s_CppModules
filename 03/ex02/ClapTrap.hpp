@@ -9,7 +9,7 @@ class ClapTrap
 protected:
 	ClapTrap();								// default constructor
 public:
-	~ClapTrap();							// destructor
+	virtual ~ClapTrap();							// destructor
 	ClapTrap(const ClapTrap& other);			// copy constructor
 	ClapTrap& operator=(const ClapTrap& other);	// (copy) assignment operator
 	// ******************************************************
@@ -34,6 +34,7 @@ public:
 	int getEnergyPoint() const;
 	int getAttackDamage() const;
 	void setAttackDamage(const unsigned int attackDamage);
+	virtual int getInitHP() const;
 };
 
 #endif

@@ -27,11 +27,9 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	return (*this);
 }
 
-
 ClapTrap::ClapTrap(const std::string name)
 {
-	// 🌟ClapTrap 생성자를 통해 생성한 이름 뒤에 _clap_name 붙이기🌟
-	this->name_ = name + "_clap_name";
+	this->name_ = name;
 	this->attackDamage_ = INITIAL_ATTACK_DAMAGE;
 	this->hitPoint_ = INITIAL_HIT_POINT;
 	this->energyPoint_  = INITIAL_ENERGY_POINT;
@@ -41,7 +39,15 @@ ClapTrap::ClapTrap(const std::string name)
 // attack target to lose <attackDamage_>, cost 1 <energyPoint_>.
 void ClapTrap::attack(std::string const & target)
 {
-	std::cout << "ClapTrap " << name_ << " attack " << target << ", causing " << this->attackDamage_ << " points of damage!" << std::endl;
+	if (this->energyPoint_ <= 0)
+	{
+		std::cout << "ClapTrap " << this->name_ << " NOT ENOUGH ENERGY!!!" << std::endl;
+	}
+	else
+	{
+		--this->energyPoint_;
+		std::cout << "ClapTrap " << name_ << " attack " << target << ", causing " << this->attackDamage_ << " points of damage!" << std::endl;
+	}
 }
 
 // take damage <amount>. so, lose <hitPoint_>.
@@ -61,13 +67,21 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	long long temp;
 
-	temp = (long long)amount + (long long)this->hitPoint_;
-	if (temp > 4294967295LL)
-		this->hitPoint_ = 4294967295U;
-	else if (temp > INITIAL_HIT_POINT)
-		this->hitPoint_ = INITIAL_HIT_POINT;
+	if (this->energyPoint_ <= 0)
+	{
+		std::cout << "ClapTrap " << this->name_ << " NOT ENOUGH ENERGY!!!" << std::endl;
+	}
 	else
-		this->hitPoint_ = temp;
+	{
+		--this->energyPoint_;
+		temp = (long long)amount + (long long)this->hitPoint_;
+		if (temp > 4294967295LL)
+			this->hitPoint_ = 4294967295U;
+		else if (temp > INITIAL_HIT_POINT)
+			this->hitPoint_ = INITIAL_HIT_POINT;
+		else
+			this->hitPoint_ = temp;
+	}
 }
 
 std::string ClapTrap::getName()
@@ -96,4 +110,9 @@ void ClapTrap::setAttackDamage(const unsigned int attackDamage)
 		this->attackDamage_ = 2147483647;
 	else
 		this->attackDamage_ = attackDamage;
+}
+
+int ClapTrap::getInitHP() const
+{
+	return this->INITIAL_HIT_POINT;
 }

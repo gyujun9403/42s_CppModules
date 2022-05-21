@@ -29,12 +29,18 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 void ScavTrap::attack(std::string const & target)
 {
-	std::cout << "ScavTrap " << name_ << " attack " << target << ", causing " << this->attackDamage_ << " points of damage!" << std::endl;
+	if (this->energyPoint_ <= 0)
+	{
+		std::cout << "ScavTrap " << this->name_ << " NOT ENOUGH ENERGY!!!" << std::endl;
+	}
+	else
+	{
+		--this->energyPoint_;
+		std::cout << "ScavTrap " << this->name_ << " attack " << target << ", causing " << this->attackDamage_ << " points of damage!" << std::endl;
+	}
 }
 
-// 🌟멤버 이니셜라이저🌟
 ScavTrap::ScavTrap(std::string name)
-:	ClapTrap::ClapTrap(name)
 {
 	this->name_ = name;
 	this->hitPoint_ = INITIAL_HIT_POINT;
@@ -45,5 +51,18 @@ ScavTrap::ScavTrap(std::string name)
 
 void ScavTrap::guardGate()
 {
-	std::cout << this->name_ << " enterred Gate keeper mode." << std::endl;
+	if (this->energyPoint_ <= 0)
+	{
+		std::cout << "ScavTrap " << this->name_ << " NOT ENOUGH ENERGY!!!" << std::endl;
+	}
+	else
+	{
+		--this->energyPoint_;
+		std::cout << "ScavTrap " << this->name_ << " enterred Gate keeper mode." << std::endl;
+	}
+}
+
+int ScavTrap::getInitHP() const
+{
+	return this->INITIAL_HIT_POINT;
 }

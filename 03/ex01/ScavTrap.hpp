@@ -24,6 +24,7 @@ public:
 	ScavTrap(const std::string name);
 	void attack(std::string const & target);
 	void guardGate();
+	virtual int getInitHP() const;
 };
 
 #endif

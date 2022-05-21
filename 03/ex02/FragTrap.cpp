@@ -29,11 +29,18 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 void FragTrap::attack(std::string const & target)
 {
-	std::cout << "FragTrap " << name_ << " attack " << target << ", causing " << this->attackDamage_ << " points of damage!" << std::endl;
+	if (this->energyPoint_ <= 0)
+	{
+		std::cout << "FragTrap " << this->name_ << " NOT ENOUGH ENERGY!!!" << std::endl;
+	}
+	else
+	{
+		--this->energyPoint_;
+		std::cout << "FragTrap " << name_ << " attack " << target << ", causing " << this->attackDamage_ << " points of damage!" << std::endl;
+	}
 }
 
 FragTrap::FragTrap(std::string name)
-:	ClapTrap::ClapTrap(name)
 {
 	this->name_ = name;
 	this->hitPoint_ = INITIAL_HIT_POINT;
@@ -44,5 +51,18 @@ FragTrap::FragTrap(std::string name)
 
 void FragTrap::highFivesGuys()
 {
-	std::cout << this->name_ << " give high fives with others." << std::endl;
+	if (this->energyPoint_ <= 0)
+	{
+		std::cout << "FragTrap " << this->name_ << " NOT ENOUGH ENERGY!!!" << std::endl;
+	}
+	else
+	{
+		--this->energyPoint_;
+		std::cout << this->name_ << " give high fives with others." << std::endl;
+	}
+}
+
+int FragTrap::getInitHP() const
+{
+	return this->INITIAL_HIT_POINT;
 }
