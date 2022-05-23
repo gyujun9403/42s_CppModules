@@ -1,4 +1,5 @@
 #include "ClapTrap.hpp"
+#include <limits>
 
 ClapTrap::ClapTrap()
 {
@@ -80,8 +81,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 	{
 		--this->energyPoint_;
 		temp = (long long)amount + (long long)this->hitPoint_;
-		if (temp > 4294967295LL)
-			this->hitPoint_ = 4294967295U;
+		if (temp > INT32_MAX)
+			this->hitPoint_ = INT32_MAX;
 		else if (temp > getInitHP())
 			this->hitPoint_ = getInitHP();
 		else
@@ -111,8 +112,8 @@ int ClapTrap::getAttackDamage() const
 
 void ClapTrap::setAttackDamage(const unsigned int attackDamage)
 {
-	if (attackDamage > 2147483647)
-		this->attackDamage_ = 2147483647;
+	if (attackDamage > INT32_MAX)
+		this->attackDamage_ = INT32_MAX;
 	else
 		this->attackDamage_ = attackDamage;
 }
