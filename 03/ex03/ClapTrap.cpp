@@ -36,7 +36,6 @@ ClapTrap::ClapTrap(const std::string name)
 	std::cout << "ClapTrap(name) constructor called. " << std::endl;
 }
 
-// attack target to lose <attackDamage_>, cost 1 <energyPoint_>.
 void ClapTrap::attack(std::string const & target)
 {
 	if (this->energyPoint_ <= 0)
@@ -50,7 +49,6 @@ void ClapTrap::attack(std::string const & target)
 	}
 }
 
-// take damage <amount>. so, lose <hitPoint_>.
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	long long temp;
@@ -62,7 +60,6 @@ void ClapTrap::takeDamage(unsigned int amount)
 		this->hitPoint_ = 0;
 }
 
-// repair <hitPoint_> <amount>, cost 1 energy point.
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	long long temp;
@@ -75,8 +72,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 	{
 		--this->energyPoint_;
 		temp = (long long)amount + (long long)this->hitPoint_;
-		if (temp > INITIAL_HIT_POINT)
-			this->hitPoint_ = INITIAL_HIT_POINT;
+		if (temp > getInitHP())
+			this->hitPoint_ = getInitHP();
 		else
 			this->hitPoint_ = temp;
 	}
