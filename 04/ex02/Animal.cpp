@@ -23,13 +23,3 @@ Animal& Animal::operator=(const Animal& other)
 	this->type_ = other.type_;
 	return *this;
 }
-
-// void Animal::makeSound() const
-// {
-// 	std::cout << "Animal :*#!^$W^#@^#$!?%@?#^$#&$^%@$#*@" << std::endl;
-// }
-
-std::string Animal::getType() const
-{
-	return this->type_;
-}

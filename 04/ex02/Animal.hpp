@@ -21,7 +21,6 @@ protected:
 public:
 	// 🌟 pure virtual fuction
 	virtual void makeSound() const = 0;
-	virtual std::string getType() const;
 };
 
 #endif

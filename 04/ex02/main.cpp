@@ -35,7 +35,13 @@ int main()
 			else
 				arrAnimal[i] = new Cat();
 		}
-		castedCat = static_cast<Cat *>(arrAnimal[1]);
+		castedCat = dynamic_cast<Cat *>(arrAnimal[1]);
+		if (castedCat == NULL)
+			return 1;
+
+		std::cout << copiedCat.getBrain().getIdea(0) << std::endl;
+		std::cout << copiedCat.getBrain().getIdea(1) << std::endl;
+		std::cout << copiedCat.getBrain().getIdea(2) << std::endl;
 
 		castedCat->getBrain().getIdea(0).assign("meow!");
 		castedCat->getBrain().getIdea(1).assign("meow!!");

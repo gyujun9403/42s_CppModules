@@ -17,7 +17,7 @@ private:
 	Brain* brain_;
 public:
 	virtual void makeSound() const;
-	virtual std::string getType() const;
+	std::string getType() const;
 	Brain& getBrain() const;
 };
 
