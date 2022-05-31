@@ -5,6 +5,7 @@
 
 class Animal
 {
+	// TODO: 주석방식 변경
 	// ****************[canonical class form]****************
 public:
 	Animal();								// default constructor
