@@ -14,5 +14,8 @@ clean :
 	rm -rf $(OBJS)
 fclean : clean
 	rm -rf $(TARGET)
-re : fclean all
+re : #fclean all
+# make fclean
+# make all
+
 .PHONY : all clean fclean re
