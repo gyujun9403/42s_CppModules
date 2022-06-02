@@ -7,15 +7,14 @@ class Cat : public Animal
 {
 	// ****************[canonical class form]****************
 public:
-	Cat();								// default constructor
+	Cat(); // default constructor
 	// 🌟 Polymorphism
-	virtual ~Cat();						// destructor
-	Cat(const Cat& other);				// copy constructor
-	Cat& operator=(const Cat& other);	// (copy) assignment operator
+	virtual ~Cat(); // destructor
+	Cat(const Cat& other); // copy constructor
+	Cat& operator=(const Cat& other); // (copy) assignment operator
 	// ******************************************************
 public:
 	virtual void makeSound() const;
-	virtual std::string getType() const;
 };
 
 #endif

@@ -10,10 +10,10 @@ class Brain
 
 	// ****************[canonical class form]****************
 public:
-	Brain();								// default constructor
-	 ~Brain();								// destructor
-	Brain(const Brain& other);				// copy constructor
-	Brain& operator=(const Brain& other);	// (copy) assignment operator
+	Brain(); // default constructor
+	 ~Brain(); // destructor
+	Brain(const Brain& other); // copy constructor
+	Brain& operator=(const Brain& other); // (copy) assignment operator
 	// ******************************************************
 	std::string& getIdea(int idx);
 };

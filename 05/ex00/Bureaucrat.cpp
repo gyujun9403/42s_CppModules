@@ -14,7 +14,7 @@ Bureaucrat::GradeTooHighException::GradeTooHighException(int max)
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(int max, int now)
-{
+{ 
 	std::stringstream tempStr;
 
 	tempStr << "Maximum Grade is " << max << ", and now grade is " << now << ".";
@@ -47,8 +47,8 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 	return this->message_.c_str();
 }
 
-Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {return ;}
-Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {return ;}
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {}
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) throw(std::exception)
 : name_(name)

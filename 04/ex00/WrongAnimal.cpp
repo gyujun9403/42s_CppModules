@@ -1,6 +1,5 @@
-#include "WrongAnimal.hpp"
-
 #include <iostream>
+#include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal()
 {

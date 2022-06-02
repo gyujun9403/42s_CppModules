@@ -8,16 +8,15 @@ class Cat : public Animal
 {
 	// ****************[canonical class form]****************
 public:
-	Cat();								// default constructor
-	virtual ~Cat();						// destructor
-	Cat(const Cat& other);				// copy constructor
-	Cat& operator=(const Cat& other);	// (copy) assignment operator
+	Cat(); // default constructor
+	virtual ~Cat(); // destructor
+	Cat(const Cat& other); // copy constructor
+	Cat& operator=(const Cat& other); // (copy) assignment operator
 	// ******************************************************
 private:
 	Brain* brain_;
 public:
 	virtual void makeSound() const;
-	std::string getType() const;
 	Brain& getBrain() const;
 };
 

@@ -1,6 +1,5 @@
-#include "Animal.hpp"
-
 #include <iostream>
+#include "Animal.hpp"
 
 Animal::Animal()
 {
@@ -22,4 +21,9 @@ Animal& Animal::operator=(const Animal& other)
 {
 	this->type_ = other.type_;
 	return *this;
+}
+
+std::string Animal::getType() const
+{
+	return this->type_;
 }

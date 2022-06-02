@@ -15,7 +15,6 @@ public:
 	// ******************************************************
 public:
 	virtual void makeSound() const;
-	virtual std::string getType() const;
 };
 
 #endif

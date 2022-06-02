@@ -1,6 +1,5 @@
-#include "Cat.hpp"
-
 #include <iostream>
+#include "Cat.hpp"
 
 Cat::Cat()
 {
@@ -18,13 +17,15 @@ Cat::~Cat()
 Cat::Cat(const Cat& other)
 {
 	this->type_ = other.type_;
-	this->brain_ = other.brain_;
+	*this->brain_ = *other.brain_;
 }
 
 Cat& Cat::operator=(const Cat& other)
 {
+	if (this == &other)
+		return *this;
 	this->type_ = other.type_;
-	this->brain_ = other.brain_;
+	*this->brain_ = *other.brain_;
 	return *this;
 }
 
@@ -32,11 +33,6 @@ Cat& Cat::operator=(const Cat& other)
 void Cat::makeSound() const
 {
 	std::cout << "Cat :Meow" << std::endl;
-}
-
-std::string Cat::getType() const
-{
-	return this->type_;
 }
 
 Brain& Cat::getBrain() const

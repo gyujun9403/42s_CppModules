@@ -1,7 +1,7 @@
+#include <iostream>
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include <iostream>
 
 #define ARR_SIZE 4
 
@@ -10,16 +10,13 @@ int main()
 	{
 		std::cout << "-----[Exer 1]-----" << std::endl;
 		Animal* castedCat;
-		Cat* cat;
 
 		castedCat = new Cat();	// auto casting.
-		cat = new Cat();
-
 		// Animal* animal;
-		// 🌟C++ error: object of abstract class type is not allowed: pure virtual function has no overrider
 		// animal = new Animal();
+		// 🌟C++ error: object of abstract class type is not allowed: pure virtual function has no overrider
 		// animal = new Animal(*castedCat);
-
+		delete(castedCat);
 		std::cout << "------------------" << std::endl;
 	}
 	{
@@ -57,6 +54,7 @@ int main()
 			delete arrAnimal[i];
 		}
 		std::cout << "------------------" << std::endl;
+		system("leaks ex02");
 	}
 	return 0;
 }

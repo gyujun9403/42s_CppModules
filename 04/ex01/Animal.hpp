@@ -5,20 +5,19 @@
 
 class Animal
 {
-	// TODO: 주석방식 변경
 	// ****************[canonical class form]****************
 public:
-	Animal();								// default constructor
-	virtual ~Animal();								// destructor
-	Animal(const Animal& other);			// copy constructor
-	Animal& operator=(const Animal& other);	// (copy) assignment operator
+	Animal(); // default constructor
+	virtual ~Animal(); // destructor
+	Animal(const Animal& other); // copy constructor
+	Animal& operator=(const Animal& other); // (copy) assignment operator
 	// ******************************************************
 
 protected:
 	std::string type_;
 public:
 	virtual void makeSound() const;
-	virtual std::string getType() const;
+	std::string getType() const;
 };
 
 #endif

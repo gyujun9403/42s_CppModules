@@ -1,6 +1,5 @@
-#include "Dog.hpp"
-
 #include <iostream>
+#include "Dog.hpp"
 
 Dog::Dog()
 {
@@ -24,13 +23,7 @@ Dog& Dog::operator=(const Dog& other)
 	return *this;
 }
 
-// @overring
 void Dog::makeSound() const
 {
 	std::cout << "Dog :Woof" << std::endl;
-}
-
-std::string Dog::getType() const
-{
-	return this->type_;
 }

@@ -1,6 +1,5 @@
-#include "Cat.hpp"
-
 #include <iostream>
+#include "Cat.hpp"
 
 Cat::Cat()
 {
@@ -24,13 +23,7 @@ Cat& Cat::operator=(const Cat& other)
 	return *this;
 }
 
-// @overring
 void Cat::makeSound() const
 {
 	std::cout << "Cat :Meow" << std::endl;
-}
-
-std::string Cat::getType() const
-{
-	return this->type_;
 }

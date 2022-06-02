@@ -1,6 +1,5 @@
-#include "WrongCat.hpp"
-
 #include <iostream>
+#include "WrongCat.hpp"
 
 WrongCat::WrongCat()
 {
@@ -28,9 +27,4 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
 void WrongCat::makeSound() const
 {
 	std::cout << "WrongCat :Meow" << std::endl;
-}
-
-std::string WrongCat::getType() const
-{
-	return this->type_;
 }

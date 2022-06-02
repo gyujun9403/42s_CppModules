@@ -23,13 +23,14 @@ private:
 	int grade_;
 
 	// 🌟extent of std::exception's exceptions
-	class GradeTooHighException: public std::exception
+	class GradeTooHighException : public std::exception
 	{
 	private:
 		// exception message
 		std::string message_;
 	public:
 		// ❓error: exception specification of overriding function is more lax than base version
+		// -> https://stackoverflow.com/a/18416814's comment(4) 
 		virtual ~GradeTooHighException() throw();
 		// 🌟 constructor
 		GradeTooHighException(int max);

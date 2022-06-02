@@ -3,17 +3,16 @@
 
 #include <string>
 
-// 가상함수와 순수 가상함수
 class Animal
 {
 	// ****************[canonical class form]****************
 protected:
 	// 🌟
-	Animal();								// default constructor
+	Animal(); // default constructor
 public:
-	virtual ~Animal();						// destructor
-	Animal(const Animal& other);			// copy constructor
-	Animal& operator=(const Animal& other);	// (copy) assignment operator
+	virtual ~Animal(); // destructor
+	Animal(const Animal& other); // copy constructor
+	Animal& operator=(const Animal& other); // (copy) assignment operator
 	// ******************************************************
 
 protected:
@@ -21,6 +20,7 @@ protected:
 public:
 	// 🌟 pure virtual fuction
 	virtual void makeSound() const = 0;
+	std::string getType() const;
 };
 
 #endif
