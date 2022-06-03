@@ -12,20 +12,12 @@ class Form
 {
 	// ****************[canonical class form]****************
 private:
-	Form();								// default constructor
+	Form(); // default constructor
 public:
-	virtual ~Form();					// destructor
-	Form(const Form& other);			// copy constructor
-	Form& operator=(const Form& other);	// (copy) assignment operator
+	virtual ~Form(); // destructor
+	Form(const Form& other); // copy constructor
+	Form& operator=(const Form& other); // (copy) assignment operator
 	// ******************************************************
-
-private:
-	static int MIN_GRADE;
-	static int MAX_GRADE;
-	const std::string name_;
-	const int signGrade_;
-	const int execGrade_;
-	bool signed_;
 
 protected:
 	class GradeTooHighException: public std::exception
@@ -50,13 +42,16 @@ protected:
 	};
 	class GradeNotSignedException: public std::exception
 	{
-	// private:
-	// 	std::string message_;
 	public:
-		//virtual ~GradeNotSignedException() throw();
 		virtual const char* what() const throw();
 	};
-
+private:
+	static int MIN_GRADE;
+	static int MAX_GRADE;
+	const std::string name_;
+	const int signGrade_;
+	const int execGrade_;
+	bool signed_;
 public:
 	Form(std::string name, int signGrade, int execGrade) throw(std::exception);
 	std::string getName() const;
@@ -64,8 +59,6 @@ public:
 	int getSignGrade() const;
 	bool isSigned() const;
 	bool beSigned(const Bureaucrat& bc) throw(std::exception);
-	// 🌟abstract class
-	virtual void execute(Bureaucrat const & executor) const = 0;
 };
 std::ostream& operator<<(std::ostream& os, const Form& in);
 

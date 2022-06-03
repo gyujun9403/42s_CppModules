@@ -98,7 +98,7 @@ std::ostream& operator<<(std::ostream& os, const Form& in)
 {
 	return os << in.getName() << ", sign grade " 
 		<< in.getSignGrade() << ", execute grade " 
-		<< in.getExecGrade() <<std::endl;
+		<< in.getExecGrade();
 }
 
 Form::Form(const Form& other)

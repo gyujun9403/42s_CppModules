@@ -8,13 +8,15 @@ class ShrubberyCreationForm : public Form
 {
 	// ****************[canonical class form]****************
 public:
-	ShrubberyCreationForm();												// default constructor
+	ShrubberyCreationForm(); // default constructor
 public:
-	virtual ~ShrubberyCreationForm();										// destructor
-	ShrubberyCreationForm(const ShrubberyCreationForm& other);				// copy constructor
-	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);	// (copy) assignment operator
+	virtual ~ShrubberyCreationForm(); // destructor
+	ShrubberyCreationForm(const ShrubberyCreationForm& other); // copy constructor
+	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other); // (copy) assignment operator
 	// ******************************************************
 private:
+	const static int SIGN_GRADE_ = 145;
+	const static int EXER_GRADE_ = 137;
 	const std::string target_;
 public:
 	ShrubberyCreationForm(std::string target);

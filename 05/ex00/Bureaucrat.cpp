@@ -50,18 +50,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {}
 Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {}
 
-Bureaucrat::Bureaucrat(std::string name, int grade) throw(std::exception)
-: name_(name)
-{
-	// 🌟throw std::exception object.
-	// In this case, throw custom(extended) std::exception class GradeTooHighException or GradeTooLowException
-	if (grade > MAX_GRADE)
-		throw Bureaucrat::GradeTooHighException(MAX_GRADE);
-	else if (grade < MIN_GRADE)
-		throw Bureaucrat::GradeTooLowException(MIN_GRADE);
-	// 🌟if exception was thrown, this code don't be run.
-	this->grade_ = grade;
-}
+Bureaucrat::Bureaucrat(std::string name): name_(name){}
 
 void Bureaucrat::incrementGrade(int up) throw(std::exception)
 {
@@ -93,9 +82,21 @@ int Bureaucrat::getGrade() const
 	return this->grade_;
 }
 
+void Bureaucrat::setGrade(const int grade) throw(std::exception)
+{
+	
+	// 🌟throw std::exception object.
+	if (grade > MAX_GRADE)
+		throw Bureaucrat::GradeTooHighException(MAX_GRADE);
+	else if (grade < MIN_GRADE)
+		throw Bureaucrat::GradeTooLowException(MIN_GRADE);
+	// 🌟if exception was thrown, this code don't be run.
+	this->grade_ = grade;
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& in)
 {
-	return os << in.getName() << ", bureaucrat grade " << in.getGrade() << "." << std::endl;
+	return os << in.getName() << ", bureaucrat grade " << in.getGrade() << ".";
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
@@ -110,5 +111,5 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 	return *this;
 }
 
-Bureaucrat::Bureaucrat() {;}
-Bureaucrat::~Bureaucrat() {;}
+Bureaucrat::Bureaucrat() {}
+Bureaucrat::~Bureaucrat() {}

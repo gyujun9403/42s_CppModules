@@ -16,20 +16,15 @@ public:
 	Bureaucrat& operator=(const Bureaucrat& other);	// (copy) assignment operator
 	// ******************************************************
 
-private:
-	static int MIN_GRADE;
-	static int MAX_GRADE;
-	const std::string name_;
-	int grade_;
-
 	// 🌟extent of std::exception's exceptions
+private:
 	class GradeTooHighException : public std::exception
 	{
 	private:
 		// exception message
 		std::string message_;
 	public:
-		// ❓error: exception specification of overriding function is more lax than base version
+		// error: exception specification of overriding function is more lax than base version
 		// -> https://stackoverflow.com/a/18416814's comment(4) 
 		virtual ~GradeTooHighException() throw();
 		// 🌟 constructor
@@ -50,10 +45,17 @@ private:
 		virtual const char* what() const throw();
 	};
 
+private:
+	static int MIN_GRADE;
+	static int MAX_GRADE;
+	const std::string name_;
+	int grade_;
+
 public:
-	Bureaucrat(std::string name, int grade) throw(std::exception);
+	Bureaucrat(std::string name);
 	std::string getName() const;
 	int getGrade() const;
+	void setGrade(const int grade) throw(std::exception);
 	// 🌟 throw(std::exception) generates std::exception object, and throw it 'catch() {...}' as execption.
 	// 		if it will throw anything, throw(...).
 	// 		and if it won't throw execption, throw().
@@ -61,7 +63,7 @@ public:
 	void decrementGrade(int down) throw(std::exception);
 };
 
-// a type qualifier is not allowed on a nonmember functionC/C++(1670)		↓
+// a type qualifier is not allowed on a nonmember functionC/C++(1670) ↓
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& in);	// const;
 
 #endif

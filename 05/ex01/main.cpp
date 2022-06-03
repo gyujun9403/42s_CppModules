@@ -4,57 +4,79 @@
 
 int main()
 {
-	Bureaucrat gyeon("gyeon", 120);
-	Form form1("form1", 80, 60);
-	Form form2 = form1;
-	Form form3("form3", 130, 122);
+	Bureaucrat gyeon("gyeon");
+	Form *formPtr[4];
+	int i = 0;
 	try
 	{
-		Form form4("form4", 80, 190);
+		gyeon.setGrade(120);
+		formPtr[i++] = new Form("form1", 80, 60);
+		formPtr[i] = formPtr[i - 1];
+		++i;
+		formPtr[i++] = new Form("form2", 130, 122);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		// if exception occur in line15, i++ don't run. so, i is 2.
+		for (int j = 0; j < i; j++)
+			delete formPtr[j];
+		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
-
-	std::cout << "-----[prt forms info]-----" << std::endl;
-	std::cout << form1 << std::endl;
-	std::cout << form2 << std::endl;
-	std::cout << form3 << std::endl;
-
-	std::cout << "-------[sign form1]-------" << std::endl;
 	try
 	{
-		gyeon.signForm(form1);
+		formPtr[3] = NULL;
+		// 🌟 occcur exception.
+		formPtr[3] = new Form("form4", 80, 190);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << "-------[sign form2]-------" << std::endl;
-	try
-	{
-		gyeon.signForm(form2);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << "--[copy form3 to form 1]--" << std::endl;
-	form1 = form3;
-	std::cout << form1 <<std::endl;
-	std::cout << "form1 signed? :" << form1.isSigned() << std::endl;
-	try
-	{
-		gyeon.signForm(form1);
-		form1.beSigned(gyeon);
-		std::cout << "form1 signed? :" << form1.isSigned() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
+		std::cout << "\e[33m" << formPtr[3] << "\e[0m" << std::endl;
+		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
 	
 
+	std::cout << "------[prt forms info]------" << std::endl;
+	std::cout << *formPtr[0] << std::endl;
+	std::cout << *formPtr[1] << std::endl;
+	std::cout << *formPtr[2] << std::endl;
+
+	std::cout << "-----[gyeon signs form1]-----" << std::endl;
+	std::cout << "gyeon's sign grade is " << gyeon.getGrade() << std::endl;
+	std::cout << *formPtr[0] << std::endl;
+	try
+	{
+		gyeon.signForm(*formPtr[0]);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
+	}
+	std::cout << "-----[gyeon signs form2]-----" << std::endl;
+	std::cout << "gyeon's sign grade is " << gyeon.getGrade() << std::endl;
+	std::cout << *formPtr[2] << std::endl;
+	try
+	{
+		gyeon.signForm(*formPtr[2]);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
+	}
+	std::cout << "----[copy form2 to form 1]----" << std::endl;
+	*formPtr[0] = *formPtr[2];
+	std::cout << *formPtr[0] <<std::endl;
+	std::cout << "form1 signed? :" << (*formPtr[0]).isSigned() << std::endl;
+	try
+	{
+		gyeon.signForm(*formPtr[0]);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
+	}	
+	(*formPtr[0]).beSigned(gyeon);
+	std::cout << "form1 signed? :" << (*formPtr[0]).isSigned() << std::endl;
+	for (int j = 0; j < i; j++)
+		delete formPtr[j];
 	return 0;
 }

@@ -7,13 +7,15 @@ class RobotomyRequestForm : public Form
 {
 	// ****************[canonical class form]****************
 public:
-	RobotomyRequestForm();												// default constructor
+	RobotomyRequestForm(); // default constructor
 public:
-	virtual ~RobotomyRequestForm();										// destructor
-	RobotomyRequestForm(const RobotomyRequestForm& other);				// copy constructor
-	RobotomyRequestForm& operator=(const RobotomyRequestForm& other);	// (copy) assignment operator
+	virtual ~RobotomyRequestForm(); // destructor
+	RobotomyRequestForm(const RobotomyRequestForm& other); // copy constructor
+	RobotomyRequestForm& operator=(const RobotomyRequestForm& other); // (copy) assignment operator
 	// ******************************************************
 private:
+	const static int SIGN_GRADE_ = 72;
+	const static int EXER_GRADE_ = 45;
 	const std::string target_;
 public:
 	RobotomyRequestForm(std::string target);
