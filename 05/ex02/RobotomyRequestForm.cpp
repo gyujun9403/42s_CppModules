@@ -11,6 +11,8 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
 {
+	if (this == &other)
+		return *this;
 	const_cast<std::string&>(this->target_) = other.target_;
 	static_cast<Form&>(*this) = other;
 	return *this;
@@ -26,7 +28,7 @@ std::string RobotomyRequestForm::getTarget() const
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const throw(std::exception)
 {
-	if (this->isSigned() && this->getExecGrade() > executor.getGrade())
+	if (this->isSigned() && this->getExecGrade() <= executor.getGrade())
 	{
 		srand(time(NULL));
 		std::cout << "$%&%@#$&@*^$%@&#$^$#^%#$@%$#^%@$*^*%$@&$#@$#" << std::endl;
@@ -50,6 +52,5 @@ std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& in)
 		return os << in.getName() 
 		<< ", Target " << in.getTarget()
 		<< ", sign grade " << in.getSignGrade() 
-		<< ", execute grade " << in.getExecGrade() <<std::endl;
-		
+		<< ", execute grade " << in.getExecGrade();
 }

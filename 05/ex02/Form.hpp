@@ -5,7 +5,6 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 
-// 🌟 error unknown type name 'Bureaucrat' occur when you don't make beSigned(...) in cpp
 class Bureaucrat;
 
 class Form
@@ -45,6 +44,7 @@ protected:
 	public:
 		virtual const char* what() const throw();
 	};
+	
 private:
 	static int MIN_GRADE;
 	static int MAX_GRADE;
@@ -59,6 +59,8 @@ public:
 	int getSignGrade() const;
 	bool isSigned() const;
 	bool beSigned(const Bureaucrat& bc) throw(std::exception);
+	// 🌟
+	virtual void execute(Bureaucrat const & executor) const throw(std::exception) = 0;
 };
 std::ostream& operator<<(std::ostream& os, const Form& in);
 

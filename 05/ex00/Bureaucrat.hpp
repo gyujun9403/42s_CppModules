@@ -46,8 +46,8 @@ private:
 	};
 
 private:
-	static int MIN_GRADE;
-	static int MAX_GRADE;
+	const static int HIGHEST_GRADE = 1;
+	const static int LOWSET_GRADE = 150;
 	const std::string name_;
 	int grade_;
 
@@ -57,10 +57,9 @@ public:
 	int getGrade() const;
 	void setGrade(const int grade) throw(std::exception);
 	// 🌟 throw(std::exception) generates std::exception object, and throw it 'catch() {...}' as execption.
-	// 		if it will throw anything, throw(...).
-	// 		and if it won't throw execption, throw().
-	void incrementGrade(int up) throw(std::exception);
-	void decrementGrade(int down) throw(std::exception);
+	// if it will throw anything, throw(...). and if it won't throw execption, throw().
+	void upGrade(int up) throw(std::exception);
+	void downGrade(int down) throw(std::exception);
 };
 
 // a type qualifier is not allowed on a nonmember functionC/C++(1670) ↓

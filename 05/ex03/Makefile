@@ -16,5 +16,7 @@ clean :
 	rm -rf *_shrubbery
 fclean : clean
 	rm -rf $(TARGET)
-re : fclean all
+re : 
+	make fclean
+	make all
 .PHONY : all clean fclean re

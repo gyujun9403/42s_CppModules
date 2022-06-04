@@ -29,11 +29,10 @@ int main()
 	std::cout << marvin <<std::endl;
 
 	std::cout << "----------[test 2]----------" <<std::endl;
-	std::cout << "--[increment/decrement test]" <<std::endl;
-	std::cout << "{gyeon :increment 3}"<<std::endl;
+	std::cout << "{gyeon :down 3 grade}"<<std::endl;
 	try
 	{
-		gyeon.incrementGrade(3);
+		gyeon.downGrade(3);
 	}
 	catch(const std::exception& e)
 	{
@@ -41,11 +40,11 @@ int main()
 	}
 	std::cout << "\t" << gyeon <<std::endl;
 
-	std::cout << "{gyeon :increment 30}"<<std::endl;
+	std::cout << "{gyeon :down 30 grade}"<<std::endl;
 	try
 	{
 		// 🌟 occur exception.
-		gyeon.incrementGrade(30);
+		gyeon.downGrade(30);
 	}
 	catch(const std::exception& e)
 	{
@@ -53,27 +52,37 @@ int main()
 	}
 	std::cout << "\t" << gyeon <<std::endl;
 	
-	std::cout << "{temp1 :increment 5}"<<std::endl;
+	std::cout << "{gyeon :down 5 grade}"<<std::endl;
 	try
 	{
-		temp1.incrementGrade(5);
+		gyeon.downGrade(5);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
-	std::cout << "\t" << temp1 <<std::endl;
-		
-	std::cout << "{marvin :increment 31}"<<std::endl;
-	try
-	{
-		marvin.incrementGrade(31);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
-	}
-	std::cout << "\t" << marvin <<std::endl;
+	std::cout << "\t" << gyeon <<std::endl;
 
+	std::cout << "{gyeon :up 18 grade}"<<std::endl;
+	try
+	{
+		gyeon.upGrade(18);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
+	}
+	std::cout << "\t" << gyeon <<std::endl;
+
+	std::cout << "{gyeon :up 110 grade}"<<std::endl;
+	try
+	{
+		gyeon.upGrade(110);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
+	}
+	std::cout << "\t" << gyeon <<std::endl;
 	return 0;
 }

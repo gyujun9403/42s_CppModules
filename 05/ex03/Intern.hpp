@@ -1,7 +1,6 @@
 #ifndef INTERN_HPP
 # define INTERN_HPP
 
-
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -17,9 +16,9 @@ public:
 	Intern& operator=(const Intern& other);	// (copy) assignment operator
 	// ******************************************************
 public:
-	// ShrubberyCreationForm : "shrubbery creation"
-	// RobotomyRequestForm : "robotomy request"
-	// PresidentialPardonForm : "presidential pardon"
+	/* ShrubberyCreationForm : "shrubbery creation"
+	* RobotomyRequestForm : "robotomy request"
+	* PresidentialPardonForm : "presidential pardon" */
 	Form* makeForm(const std::string formName, const std::string formTarget) const;
 };
 

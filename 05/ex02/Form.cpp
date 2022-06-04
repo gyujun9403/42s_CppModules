@@ -38,7 +38,7 @@ Form::GradeTooLowException::GradeTooLowException(int min, int now)
 {
 	std::stringstream tempStr;
 
-	tempStr << "Minimum Grade is " << min << ", and now grade is " << now << ".";
+	tempStr << "Up than " << min << ". and now grade is " << now << ".";
 	this->message_ = tempStr.str();
 }
 
@@ -56,13 +56,12 @@ Form::GradeTooHighException::~GradeTooHighException() throw() {return ;}
 Form::GradeTooLowException::~GradeTooLowException() throw() {return ;}
 
 Form::Form(std::string name, int signGrade, int execGrade) throw(std::exception)
-: name_(name), signGrade_(signGrade), execGrade_(execGrade)
+: name_(name), signGrade_(signGrade), execGrade_(execGrade), signed_(false)
 {
 	if (this->signGrade_ < MIN_GRADE | this->execGrade_ < MIN_GRADE)
 		throw GradeTooLowException(MIN_GRADE);
 	else if (this->signGrade_ > MAX_GRADE | this->execGrade_ > MAX_GRADE)
 		throw GradeTooHighException(MAX_GRADE);
-	signed_ = false;
 }
 
 std::string Form::getName() const
@@ -87,7 +86,7 @@ bool Form::isSigned() const
 
 bool Form::beSigned(const Bureaucrat& bc) throw(std::exception)
 {
-	if (this->signGrade_ >= bc.getGrade())
+	if (this->signGrade_ <= bc.getGrade())
 	{
 		this->signed_ = true;
 		return true;
@@ -107,17 +106,16 @@ std::ostream& operator<<(std::ostream& os, const Form& in)
 }
 
 Form::Form(const Form& other)
-: name_(other.name_), signGrade_(other.signGrade_), execGrade_(other.execGrade_)
-{
-	this->signed_ = other.signed_;
-}
+: name_(other.name_), signGrade_(other.signGrade_), execGrade_(other.execGrade_), signed_(other.signed_) {}
 
 Form& Form::operator=(const Form& other)
 {
+	if (this == &other)
+		return *this;
 	this->signed_ = other.signed_;
 	const_cast<int &>(this->signGrade_) = other.signGrade_;
 	const_cast<int &>(this->execGrade_) = other.execGrade_;
 	return *this;
 }
 
-Form::~Form() {;}
+Form::~Form() {}

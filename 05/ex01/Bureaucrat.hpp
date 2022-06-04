@@ -11,13 +11,13 @@ class Bureaucrat
 {
 	// ****************[canonical class form]****************
 protected:
-	Bureaucrat(); // default constructor
+	// 🌟
+	Bureaucrat();									// default constructor
 public:
-	virtual ~Bureaucrat(); // destructor
-	Bureaucrat(const Bureaucrat& other); // copy constructor
-	Bureaucrat& operator=(const Bureaucrat& other); // (copy) assignment operator
+	virtual ~Bureaucrat();							// destructor
+	Bureaucrat(const Bureaucrat& other);			// copy constructor
+	Bureaucrat& operator=(const Bureaucrat& other);	// (copy) assignment operator
 	// ******************************************************
-
 private:
 	class GradeTooHighException : public std::exception
 	{
@@ -41,8 +41,8 @@ private:
 	};
 
 private:
-	static int MIN_GRADE;
-	static int MAX_GRADE;
+	const static int HIGHEST_GRADE = 1;
+	const static int LOWSET_GRADE = 150;
 	const std::string name_;
 	int grade_;
 
@@ -51,8 +51,8 @@ public:
 	std::string getName() const;
 	int getGrade() const;
 	void setGrade(const int grade) throw(std::exception);
-	void incrementGrade(int up) throw(std::exception);
-	void decrementGrade(int down) throw(std::exception);
+	void upGrade(int up) throw(std::exception);
+	void downGrade(int down) throw(std::exception);
 	bool signForm(const Form& form);
 };
 

@@ -19,80 +19,78 @@ int main()
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
-	std::cout << scf << std::endl;
 
-	std::cout << "--[sign ShrubberyCreationForm]--" << std::endl;
+	std::cout << "--[sign/execute ShrubberyCreationForm]--" << std::endl;
+	std::cout << scf << std::endl;
 	try
 	{
-		gyeon.signForm(scf);
 		scf.beSigned(gyeon);
 		// if exeception occured, can't run this code
-		std::cout << "gyeon :Successfully signed ShrubberyCreationForm" << std::endl;
+		std::cout << "\e[32m" << "gyeon :Successfully signed ShrubberyCreationForm" << "\e[0m" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
-	std::cout << "\n-[execute ShrubberyCreationForm]-" << std::endl;
+	gyeon.signForm(scf);
 	try
 	{
-		gyeon.executeForm(scf);
 		scf.execute(gyeon);
-		std::cout << "gyeon :Successfully execute ShrubberyCreationForm" << std::endl;
+		std::cout << "\e[32m" << "gyeon :Successfully execute ShrubberyCreationForm" << "\e[0m" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
+	gyeon.executeForm(scf);
 	std::cout << "--------------------------------\n\n" << std::endl;
 	
-	std::cout << "---[sign RobotomyRequestForm]---" << std::endl;
+	std::cout << "---[sign/execute RobotomyRequestForm]---" << std::endl;
+	std::cout << rrf << std::endl;
 	try
 	{
-		gyeon.signForm(rrf);
 		rrf.beSigned(gyeon);
-		std::cout << "gyeon :Successfully signed RobotomyRequestForm" << std::endl;
+		std::cout << "\e[32m" << "gyeon :Successfully signed RobotomyRequestForm" << "\e[0m" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
-	std::cout << "\n-[execute RobotomyRequestForm]-" << std::endl;
+	gyeon.signForm(rrf);
 	try
 	{
-		gyeon.executeForm(rrf);
 		rrf.execute(gyeon);
-		std::cout << "gyeon :Successfully execute RobotomyRequestForm" << std::endl;
+		std::cout << "\e[32m" << "gyeon :Successfully execute RobotomyRequestForm" << "\e[0m" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
+	gyeon.executeForm(rrf);
 	std::cout << "--------------------------------\n\n" << std::endl;
 
-	std::cout << "--[sign PresidentialPardonForm]--" << std::endl;
+	std::cout << "--[sign/execute PresidentialPardonForm]--" << std::endl;
+	std::cout << ppf << std::endl;
 	try
 	{
-		gyeon.signForm(ppf);
 		ppf.beSigned(gyeon);
-		std::cout << "gyeon :Successfully signed PresidentialPardonForm" << std::endl;
+		std::cout << "\e[32m" << "gyeon :Successfully signed PresidentialPardonForm" << "\e[0m" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
-	std::cout << "\n-[execute PresidentialPardonForm]-" << std::endl;
-
+	gyeon.signForm(ppf);
 	try
 	{
-		gyeon.executeForm(ppf);
 		ppf.execute(gyeon);
-		std::cout << "gyeon :Successfully execute PresidentialPardonForm" << std::endl;
+		std::cout << "\e[32m" << "gyeon :Successfully execute PresidentialPardonForm" << "\e[0m" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
+	gyeon.executeForm(ppf);
 	std::cout << "--------------------------------" << std::endl;
 	
 
