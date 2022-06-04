@@ -41,6 +41,7 @@ private:
 		virtual const char* what() const throw();
 	};
 private:
+	// TODO:
 	static int MIN_GRADE;
 	static int MAX_GRADE;
 	const std::string name_;

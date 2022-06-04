@@ -102,6 +102,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
 	this->grade_ = other.grade_;
 }
 
+// copy and swap ->  원본값 보장.
+// TODO: 아에 막아버리게 필요한경우만 막게...
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
 	if (this == &other)

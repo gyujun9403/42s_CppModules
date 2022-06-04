@@ -1,9 +1,6 @@
 #include "Scalar.hpp"
 
-Scalar::Scalar()
-{
-	;
-}
+Scalar::Scalar() {}
 
 Scalar::Scalar(const Scalar& other)
 {

@@ -108,6 +108,7 @@ bool Bureaucrat::signForm(const Form& form)
 	}
 }
 
+// TODO: form의 execute를 여기서 실행하고 , form에 사인하는 주체가 누구인지...
 bool Bureaucrat::executeForm(Form const & form)
 {
 	if (form.isSigned() && form.getExecGrade() <= this->grade_)

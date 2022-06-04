@@ -18,9 +18,7 @@ int main(int ac, char* av[])
 		ScalarChar sChar(input);
 		sChar.prtValueInfo();
 	}
-	// libc++abi.dylib: terminating with unexpected exception of type InvalidInputException
-	// std::exception관련 문제.
-	catch(const InvalidInputException& e)
+	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 		return 1;

@@ -5,10 +5,10 @@ class Scalar
 {
 	// ****************[canonical class form]****************
 protected:
-	Scalar();								// default constructor
-	Scalar(const Scalar& other);			// copy constructor
-	Scalar& operator=(const Scalar& other);	// (copy) assignment operator
-	virtual ~Scalar();					// destructor
+	Scalar(); // default constructor
+	Scalar(const Scalar& other); // copy constructor
+	Scalar& operator=(const Scalar& other); // (copy) assignment operator
+	virtual ~Scalar(); // destructor
 	// ******************************************************
 public:
 	virtual void prtValueInfo() const = 0;

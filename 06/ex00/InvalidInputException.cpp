@@ -6,10 +6,7 @@ InvalidInputException::InvalidInputException(std::string where)
 	this->message_ = "["+ where + "] Invalid input.";
 }
 
-InvalidInputException::~InvalidInputException() throw()
-{
-	;
-}
+InvalidInputException::~InvalidInputException() throw() {}
 
 const char* InvalidInputException::what() const throw()
 {

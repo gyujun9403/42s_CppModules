@@ -3,13 +3,13 @@
 
 #include <string>
 
-class InvalidInputException : public std::exception
+class initializeMissingException : public std::exception
 {
 private:
 	std::string message_;
 public:
-	virtual ~InvalidInputException() throw();
-	InvalidInputException(std::string where);
+	virtual ~initializeMissingException() throw();
+	initializeMissingException(std::string where);
 	virtual const char* what() const throw();
 };
 

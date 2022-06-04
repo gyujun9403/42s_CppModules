@@ -2,25 +2,17 @@
 #include <iostream>
 #include <cmath>
 
-Input::Input()
-{
-	this->isCompiled_ = false;
-}
+Input::Input(): isCompiled_(false) {}
 
-Input::~Input() { ;}
+Input::~Input() {}
 
 Input::Input(const Input& other)
-{
-	this->isCompiled_ = other.isCompiled_;
-	this->inputStr_ = other.inputStr_;
-	this->value_ = other.value_;
-	this->isNan_ = other.isNan_;
-	this->isInf_ = other.isInf_;
-	this->isCompiled_ = other.isCompiled_;
-}
+: isCompiled_(other.isCompiled_), inputStr_(other.inputStr_), value_(other.value_), isNan_(other.isNan_), isInf_(other.isInf_) { }
 
 Input& Input::operator=(const Input& other)
 {
+	if (this == &other)
+		return *this;	
 	this->inputStr_ = other.inputStr_;
 	this->value_ = other.value_;
 	this->isNan_ = other.isNan_;

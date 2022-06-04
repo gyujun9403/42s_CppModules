@@ -30,6 +30,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const throw(std::
 {
 	if (this->isSigned() && this->getExecGrade() <= executor.getGrade())
 	{
+		// TODO:
 		srand(time(NULL));
 		std::cout << "$%&%@#$&@*^$%@&#$^$#^%#$@%$#^%@$*^*%$@&$#@$#" << std::endl;
 		if (rand() % 2 == 0)
