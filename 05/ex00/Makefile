@@ -1,6 +1,6 @@
 TARGET = ex00
 CPP = c++
-FLAGS = -std=c++98 #-Wall -Wextra -Werror
+FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
 SRCS = Bureaucrat.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
