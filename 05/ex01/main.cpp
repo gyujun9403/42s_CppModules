@@ -45,25 +45,26 @@ int main()
 	std::cout << *formPtr[0] << std::endl;
 	try
 	{
-		gyeon.signForm(*formPtr[0]);
+		(*formPtr[0]).beSigned(gyeon);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
+	gyeon.signForm(*formPtr[0]);
 
 	std::cout << "-----[gyeon signs form2]-----" << std::endl;
 	std::cout << "gyeon's sign grade is " << gyeon.getGrade() << std::endl;
 	std::cout << *formPtr[2] << std::endl;
 	try
 	{
-		gyeon.signForm(*formPtr[2]);
 		(*formPtr[2]).beSigned(gyeon);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
+	gyeon.signForm(*formPtr[2]);
 
 	std::cout << "----[copy form2 to form 1]----" << std::endl;
 	*formPtr[0] = *formPtr[2];

@@ -38,7 +38,7 @@ Form::GradeTooLowException::GradeTooLowException(int min, int now)
 {
 	std::stringstream tempStr;
 
-	tempStr << "Minimum Grade is " << min << ", and now grade is " << now << ".";
+	tempStr << "Up than " << min << ", and now grade is " << now << ".";
 	this->message_ = tempStr.str();
 }
 
