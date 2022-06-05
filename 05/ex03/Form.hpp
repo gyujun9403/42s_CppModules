@@ -12,10 +12,10 @@ class Form
 	// ****************[canonical class form]****************
 private:
 	Form(); // default constructor
+	Form& operator=(const Form& other); // (copy) assignment operator
 public:
 	virtual ~Form(); // destructor
 	Form(const Form& other); // copy constructor
-	Form& operator=(const Form& other); // (copy) assignment operator
 	// ******************************************************
 
 protected:
@@ -46,8 +46,8 @@ protected:
 	};
 	
 private:
-	static int MIN_GRADE;
-	static int MAX_GRADE;
+	const static int LOWEST_GRADE = 150;
+	const static int HIGHEST_GRADE = 1;
 	const std::string name_;
 	const int signGrade_;
 	const int execGrade_;

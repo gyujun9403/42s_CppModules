@@ -21,7 +21,7 @@ int main()
 				std::cout << "arr1[" << i << "] :" << arr1[i] << std::endl;
 			}
 		}
-		catch(const std::exception& e)
+		catch(std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
@@ -35,7 +35,7 @@ int main()
 		{
 			std::cout << "arr2[0] :" << arr2[0] << std::endl;
 		}
-		catch(const std::exception& e)
+		catch(std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
@@ -55,7 +55,7 @@ int main()
 				std::cout << "str1[" << i << "] :" << str1[i] << std::endl;
 			}
 		}
-		catch(const std::exception& e)
+		catch(std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
@@ -69,7 +69,7 @@ int main()
 				std::cout << "str2[" << i << "] :" << str2[i] << std::endl;
 			}
 		}
-		catch(const std::exception& e)
+		catch(std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
@@ -82,7 +82,7 @@ int main()
 				std::cout << "str2[" << i << "] :" << str2[i] << std::endl;
 			}
 		}
-		catch(const std::exception& e)
+		catch(std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}

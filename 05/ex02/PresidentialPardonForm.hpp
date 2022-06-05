@@ -6,12 +6,12 @@
 class PresidentialPardonForm : public Form
 {
 	// ****************[canonical class form]****************
+private:
+	PresidentialPardonForm& operator=(const PresidentialPardonForm& other); // (copy) assignment operator
 public:
 	PresidentialPardonForm(); // default constructor
-public:
 	virtual ~PresidentialPardonForm(); // destructor
 	PresidentialPardonForm(const PresidentialPardonForm& other); // copy constructor
-	PresidentialPardonForm& operator=(const PresidentialPardonForm& other); // (copy) assignment operator
 	// ******************************************************
 private:
 	const static int SIGN_GRADE_ = 25;

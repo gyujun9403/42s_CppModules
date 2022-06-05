@@ -53,7 +53,7 @@ public:
 	void setGrade(const int grade) throw(std::exception);
 	void upGrade(int up) throw(std::exception);
 	void downGrade(int down) throw(std::exception);
-	bool signForm(const Form& form);
+	bool signForm(Form& form);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& in);

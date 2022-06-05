@@ -23,7 +23,7 @@ Dog::Dog(const Dog& other)
 
 Dog& Dog::operator=(const Dog& other)
 {
-	if (this == &other)
+	
 		return *this;
 	this->type_ = other.type_;
 	*this->brain_ = *other.brain_;

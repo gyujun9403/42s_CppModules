@@ -11,7 +11,7 @@ T easyfind(T& constainer, int element)
 		/* code */
 		T::find()
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}

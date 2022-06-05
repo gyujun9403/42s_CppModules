@@ -78,7 +78,7 @@ void TypeFinder::identify(Base& p)
 		else
 			std::cout << "Unknown type class." << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		//std::cerr << e.what() << '\n';
 		++i;

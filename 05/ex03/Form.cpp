@@ -2,9 +2,6 @@
 #include <sstream>
 #include "Form.hpp"
 
-int Form::MIN_GRADE = 1;
-int Form::MAX_GRADE = 150;
-
 Form::GradeTooHighException::GradeTooHighException(int max)
 {
 	std::stringstream tempStr;
@@ -38,7 +35,7 @@ Form::GradeTooLowException::GradeTooLowException(int min, int now)
 {
 	std::stringstream tempStr;
 
-	tempStr << "Up than " << min << ". and now grade is " << now << ".";
+	tempStr << "Minimum Grade is " << min << ", and now grade is " << now << ".";
 	this->message_ = tempStr.str();
 }
 
@@ -49,7 +46,7 @@ const char* Form::GradeTooLowException::what() const throw()
 
 const char* Form::GradeNotSignedException::what() const throw()
 {
-	return "This form not signed!";
+	return "This form is not signed!";
 }
 
 Form::GradeTooHighException::~GradeTooHighException() throw() {return ;}
@@ -58,10 +55,10 @@ Form::GradeTooLowException::~GradeTooLowException() throw() {return ;}
 Form::Form(std::string name, int signGrade, int execGrade) throw(std::exception)
 : name_(name), signGrade_(signGrade), execGrade_(execGrade), signed_(false)
 {
-	if (this->signGrade_ < MIN_GRADE | this->execGrade_ < MIN_GRADE)
-		throw GradeTooLowException(MIN_GRADE);
-	else if (this->signGrade_ > MAX_GRADE | this->execGrade_ > MAX_GRADE)
-		throw GradeTooHighException(MAX_GRADE);
+	if (this->signGrade_ > LOWEST_GRADE | this->execGrade_ > LOWEST_GRADE)
+		throw GradeTooLowException(LOWEST_GRADE);
+	else if (this->signGrade_ < HIGHEST_GRADE | this->execGrade_ < HIGHEST_GRADE)
+		throw GradeTooHighException(HIGHEST_GRADE);
 }
 
 std::string Form::getName() const
@@ -110,11 +107,7 @@ Form::Form(const Form& other)
 
 Form& Form::operator=(const Form& other)
 {
-	if (this == &other)
-		return *this;
-	this->signed_ = other.signed_;
-	const_cast<int &>(this->signGrade_) = other.signGrade_;
-	const_cast<int &>(this->execGrade_) = other.execGrade_;
+	static_cast<void>(other);
 	return *this;
 }
 

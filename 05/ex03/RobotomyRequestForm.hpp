@@ -6,12 +6,12 @@
 class RobotomyRequestForm : public Form
 {
 	// ****************[canonical class form]****************
+private:
+	RobotomyRequestForm& operator=(const RobotomyRequestForm& other); // (copy) assignment operator
 public:
 	RobotomyRequestForm(); // default constructor
-public:
 	virtual ~RobotomyRequestForm(); // destructor
 	RobotomyRequestForm(const RobotomyRequestForm& other); // copy constructor
-	RobotomyRequestForm& operator=(const RobotomyRequestForm& other); // (copy) assignment operator
 	// ******************************************************
 private:
 	const static int SIGN_GRADE_ = 72;

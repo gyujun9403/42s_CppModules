@@ -33,8 +33,6 @@ Form* retPresidentialPardonForm(const std::string target)
 
 Form* Intern::makeForm(const std::string formName, const std::string formTarget) const
 {
-	// TODO: 함수 호출때마다 새로 만들게됨.
-	//리턴시에만 생성자가 호출되게 하여 오버헤드를 줄이게...!
 	Form* (*allForms[3])(const std::string target)
 		= {retShrubberyCreationForm, retRobotomyRequestForm, retPresidentialPardonForm};
 	static std::string formNameSet[3]

@@ -7,12 +7,12 @@
 class ShrubberyCreationForm : public Form
 {
 	// ****************[canonical class form]****************
+private:
+	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other); // (copy) assignment operator
 public:
 	ShrubberyCreationForm(); // default constructor
-public:
 	virtual ~ShrubberyCreationForm(); // destructor
 	ShrubberyCreationForm(const ShrubberyCreationForm& other); // copy constructor
-	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other); // (copy) assignment operator
 	// ******************************************************
 private:
 	const static int SIGN_GRADE_ = 145;

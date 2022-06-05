@@ -11,7 +11,7 @@ Input::Input(const Input& other)
 
 Input& Input::operator=(const Input& other)
 {
-	if (this == &other)
+	
 		return *this;	
 	this->inputStr_ = other.inputStr_;
 	this->value_ = other.value_;

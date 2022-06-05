@@ -10,10 +10,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& oth
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 {
-	if (this == &other)
-		return *this;
-	const_cast<std::string&>(this->target_) = other.target_;
-	static_cast<Form&>(*this) = other;
+	static_cast<void>(other);
 	return *this;
 }
 
@@ -27,18 +24,15 @@ std::string PresidentialPardonForm::getTarget() const
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const throw(std::exception)
 {
-	if (this->isSigned() && this->getExecGrade() <= executor.getGrade())
-	{
-		std::cout << this->target_ << " has been pardoned by Zaphod Beeblebrox." << std::endl;
-	}
-	else if(!this->isSigned())
+	if (!this->isSigned())
 	{
 		throw(Form::GradeNotSignedException());
 	}
-	else
+	if (this->getExecGrade() > executor.getGrade())
 	{
 		throw(Form::GradeTooLowException(executor.getGrade(), this->getExecGrade()));
 	}
+	std::cout << this->target_ << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& in)

@@ -18,7 +18,7 @@ int main(int ac, char* av[])
 		ScalarChar sChar(input);
 		sChar.prtValueInfo();
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 		return 1;

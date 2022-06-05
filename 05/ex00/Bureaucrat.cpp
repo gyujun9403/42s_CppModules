@@ -85,9 +85,13 @@ void Bureaucrat::setGrade(const int grade) throw(std::exception)
 {
 	
 	if (grade < HIGHEST_GRADE)
+	{
 		throw Bureaucrat::GradeTooHighException(HIGHEST_GRADE);
+	}
 	else if (grade > LOWSET_GRADE)
+	{
 		throw Bureaucrat::GradeTooLowException(LOWSET_GRADE);
+	}
 	this->grade_ = grade;
 }
 
@@ -102,12 +106,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
 	this->grade_ = other.grade_;
 }
 
-// copy and swap ->  원본값 보장.
-// TODO: 아에 막아버리게 필요한경우만 막게...
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-	if (this == &other)
-		return *this;
 	this->grade_ = other.grade_;
 	return *this;
 }

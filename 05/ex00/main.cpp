@@ -13,7 +13,7 @@ int main()
 		// 🌟 occur exception.
 		marvin.setGrade(151);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
@@ -34,7 +34,7 @@ int main()
 	{
 		gyeon.downGrade(3);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
@@ -46,7 +46,7 @@ int main()
 		// 🌟 occur exception.
 		gyeon.downGrade(30);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
@@ -57,7 +57,7 @@ int main()
 	{
 		gyeon.downGrade(5);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
@@ -68,7 +68,7 @@ int main()
 	{
 		gyeon.upGrade(18);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
@@ -79,7 +79,7 @@ int main()
 	{
 		gyeon.upGrade(110);
 	}
-	catch(const std::exception& e)
+	catch(std::exception& e)
 	{
 		std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 	}
