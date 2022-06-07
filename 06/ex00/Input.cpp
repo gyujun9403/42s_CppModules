@@ -2,12 +2,12 @@
 #include <iostream>
 #include <cmath>
 
-Input::Input(): isCompiled_(false) {}
+Input::Input() {}
 
 Input::~Input() {}
 
 Input::Input(const Input& other)
-: isCompiled_(other.isCompiled_), inputStr_(other.inputStr_), value_(other.value_), isNan_(other.isNan_), isInf_(other.isInf_) { }
+: inputStr_(other.inputStr_), value_(other.value_), isNan_(other.isNan_), isInf_(other.isInf_) { }
 
 Input& Input::operator=(const Input& other)
 {
@@ -17,11 +17,10 @@ Input& Input::operator=(const Input& other)
 	this->value_ = other.value_;
 	this->isNan_ = other.isNan_;
 	this->isInf_ = other.isInf_;
-	this->isCompiled_ = other.isCompiled_;
 	return *this;
 }
 
-Input::Input(char* str) throw(InvalidInputException)
+Input::Input(char* str) throw(std::exception)
 {
 	char* pEnd;
 	if (str == NULL || str[0] == '\0')
@@ -34,22 +33,17 @@ Input::Input(char* str) throw(InvalidInputException)
 	this->isInf_ = std::isinf(this->value_);
 }
 
-bool Input::isComiled()
-{
-	return this->isCompiled_;
-}
-
-double Input::getValue()
+double Input::getValue() const
 {
 	return this->value_;
 }
 
-bool Input::isNan()
+bool Input::isNan() const
 {
 	return this->isNan_;
 }
 
-bool Input::isInf()
+bool Input::isInf() const
 {
 	return this->isInf_;
 }

@@ -20,7 +20,7 @@ private:
 	short isInf_;
 
 public:
-	Input(char* str) throw(InvalidInputException);
+	Input(char* str) throw(std::exception);
 	double getValue() const;
 	bool isNan() const;
 	bool isInf() const;

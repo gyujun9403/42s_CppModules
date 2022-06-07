@@ -3,10 +3,10 @@
 Scalar::Scalar() {}
 
 Scalar::Scalar(const Scalar& other)
-:isInf_(other.isInf_), isNan_(other.isNan_) {}
+:isNan_(other.isNan_), isInf_(other.isInf_) {}
 
 Scalar::Scalar(const Input& input)
-: orgScalar_(input.getValue()), isInf_(input.isInf()), isNan_(input.isNan()) {}
+: orgScalar_(input.getValue()), isNan_(input.isNan()), isInf_(input.isInf()) {}
 
 Scalar& Scalar::operator=(const Scalar& other)
 {

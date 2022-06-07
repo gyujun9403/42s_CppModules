@@ -35,7 +35,7 @@ void ScalarInt::prtValueInfo() const
 	else
 	{
 		tempStr += "'";
-		tempStr += this->intScalar_;
+		tempStr += std::to_string(this->intScalar_);
 		tempStr += "'";
 	}
 	std::cout << tempStr << std::endl;

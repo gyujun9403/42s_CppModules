@@ -23,7 +23,7 @@ private:
 	char charValue_;
 public:
 	ScalarChar(const Input& input);
-	bool setValue(const Input& input);
+	void setValue(const Input& input);
 	// @overriding
 	virtual void prtValueInfo() const;
 };

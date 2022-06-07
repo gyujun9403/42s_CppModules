@@ -17,10 +17,10 @@ ScalarChar& ScalarChar::operator=(const ScalarChar& other)
 	return *this;
 }
 
-ScalarChar::ScalarChar(const Input& input) throw(std::exception)
+ScalarChar::ScalarChar(const Input& input)
 : Scalar(input), charValue_(static_cast<char>(Scalar::getOrgValue())) {}
 
-bool ScalarChar::setValue(const Input& input)
+void ScalarChar::setValue(const Input& input)
 {
 	Scalar::setScalar(input);
 	this->charValue_ = static_cast<char>(Scalar::getOrgValue());
