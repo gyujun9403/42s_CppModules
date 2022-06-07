@@ -10,7 +10,7 @@ int main()
 	int i = 0;
 	try
 	{
-		gyeon.setGrade(120);
+		gyeon.setGrade(80);
 		formPtr[i++] = new Form("form1", 80, 60);
 		formPtr[i] = new Form(*formPtr[i - 1]);
 		++i;

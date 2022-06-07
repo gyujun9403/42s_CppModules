@@ -11,7 +11,6 @@ class Bureaucrat
 {
 	// ****************[canonical class form]****************
 protected:
-	// 🌟
 	Bureaucrat();									// default constructor
 public:
 	virtual ~Bureaucrat();							// destructor

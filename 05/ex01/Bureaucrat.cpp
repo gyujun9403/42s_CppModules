@@ -35,7 +35,7 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(int min, int now)
 {
 	std::stringstream tempStr;
 
-	tempStr << "Up than " << min << ". and now grade is " << now << ".";
+	tempStr << "Lowest Grade is " << min << ", and now grade is " << now << ".";
 	this->message_ = tempStr.str();
 }
 
@@ -55,7 +55,9 @@ void Bureaucrat::upGrade(int up) throw(std::exception)
 
 	tempGrade = this->grade_ - up;
 	if (tempGrade < HIGHEST_GRADE)
+	{
 		throw Bureaucrat::GradeTooHighException(HIGHEST_GRADE, this->grade_);
+	}
 	this->grade_ = tempGrade;
 }
 

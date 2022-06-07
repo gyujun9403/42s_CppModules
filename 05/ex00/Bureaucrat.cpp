@@ -56,7 +56,9 @@ void Bureaucrat::upGrade(int up) throw(std::exception)
 	tempGrade = this->grade_ - up;
 	// 🌟throw std::exception object.
 	if (tempGrade < HIGHEST_GRADE)
+	{
 		throw Bureaucrat::GradeTooHighException(HIGHEST_GRADE, this->grade_);
+	}
 	// 🌟if exception was thrown, this code don't be run.
 	this->grade_ = tempGrade;
 }
@@ -67,7 +69,9 @@ void Bureaucrat::downGrade(int down) throw(std::exception)
 
 	tempGrade = this->grade_ + down;
 	if (tempGrade > LOWSET_GRADE)
+	{
 		throw Bureaucrat::GradeTooLowException(LOWSET_GRADE, this->grade_);
+	}
 	this->grade_ = tempGrade;
 }
 
@@ -88,7 +92,7 @@ void Bureaucrat::setGrade(const int grade) throw(std::exception)
 	{
 		throw Bureaucrat::GradeTooHighException(HIGHEST_GRADE);
 	}
-	else if (grade > LOWSET_GRADE)
+	if (grade > LOWSET_GRADE)
 	{
 		throw Bureaucrat::GradeTooLowException(LOWSET_GRADE);
 	}

@@ -59,7 +59,6 @@ public:
 	int getSignGrade() const;
 	bool isSigned() const;
 	bool beSigned(const Bureaucrat& bc) throw(std::exception);
-	// 🌟
 	virtual void execute(Bureaucrat const & executor) const throw(std::exception) = 0;
 };
 std::ostream& operator<<(std::ostream& os, const Form& in);

@@ -13,7 +13,7 @@ int main()
 	try
 	{
 		// 🌟 To test, edit this.
-		gyeon.setGrade(120);
+		gyeon.setGrade(72);
 	}
 	catch(std::exception& e)
 	{

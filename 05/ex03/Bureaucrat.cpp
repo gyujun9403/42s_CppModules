@@ -35,7 +35,7 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(int min, int now)
 {
 	std::stringstream tempStr;
 
-	tempStr << "Up than " << min << ". and now grade is " << now << ".";
+	tempStr << "Lowest Grade is " << min << ", and now grade is " << now << ".";
 	this->message_ = tempStr.str();
 }
 
@@ -111,14 +111,13 @@ bool Bureaucrat::signForm(Form& form)
 	catch(std::exception& e)
 	{
 		std::cerr << "\e[31m" << this->getName() << " couldn’t sign " << form.getName() << " because ";
-		std::cerr << e.what() << "\e[0m" << '\n';
+		std::cerr << e.what() << "\e[0m" << std::endl;
 		return false;
 	}
 	std::cout << "\e[32m" << this->getName() << " signed " << form.getName() << "\e[0m" << std::endl;
 	return true;
 }
 
-// 🌟 Bureaucrat executes Form
 bool Bureaucrat::executeForm(Form const & form)
 {
 	try

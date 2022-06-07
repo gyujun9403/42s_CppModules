@@ -9,6 +9,7 @@ int main()
 	Form* rrf;
 	Form* scf;
 	Form* ppf;
+	Form* wrongInput;
 
 	try
 	{
@@ -22,16 +23,29 @@ int main()
 	}
 	
 	// 🌟 intern makes forms.
-	// TODO:null defence
 	rrf = someRandomIntern.makeForm("robotomy request", "Marvin");
-	std::cout << *rrf << std::endl;
-	std::cout << *dynamic_cast<RobotomyRequestForm*>(rrf) << std::endl;
+	if (rrf != NULL)
+	{
+		std::cout << *rrf << std::endl;
+		std::cout << *dynamic_cast<RobotomyRequestForm*>(rrf) << std::endl;
+	}
 	scf = someRandomIntern.makeForm("shrubbery creation", "Jack");
-	std::cout << *scf << std::endl;
-	std::cout << *dynamic_cast<ShrubberyCreationForm*>(scf) << std::endl;
+	if (scf != NULL)
+	{
+		std::cout << *scf << std::endl;
+		std::cout << *dynamic_cast<ShrubberyCreationForm*>(scf) << std::endl;
+	}
 	ppf = someRandomIntern.makeForm("presidential pardon", "Leon");
-	std::cout << *ppf << std::endl;
-	std::cout << *dynamic_cast<PresidentialPardonForm*>(ppf) << std::endl;
+	if (ppf != NULL)
+	{
+		std::cout << *ppf << std::endl;
+		std::cout << *dynamic_cast<PresidentialPardonForm*>(ppf) << std::endl;
+	}
+	wrongInput = someRandomIntern.makeForm("Wrong Input", "Marvin");
+	if (wrongInput != NULL)
+	{
+		std::cerr << "\e[31m" << "🔥🔥🔥🔥🔥"<< "\e[0m" << std::endl;
+	}
 
 	std::cout << "---[gyeon signs and executes RobotomyRequestForm]---" << std::endl;
 	gyeon.signForm(*dynamic_cast<RobotomyRequestForm*>(rrf));

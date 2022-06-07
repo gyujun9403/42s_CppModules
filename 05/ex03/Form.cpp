@@ -56,9 +56,13 @@ Form::Form(std::string name, int signGrade, int execGrade) throw(std::exception)
 : name_(name), signGrade_(signGrade), execGrade_(execGrade), signed_(false)
 {
 	if (this->signGrade_ > LOWEST_GRADE | this->execGrade_ > LOWEST_GRADE)
+	{
 		throw GradeTooLowException(LOWEST_GRADE);
+	}
 	else if (this->signGrade_ < HIGHEST_GRADE | this->execGrade_ < HIGHEST_GRADE)
+	{
 		throw GradeTooHighException(HIGHEST_GRADE);
+	}
 }
 
 std::string Form::getName() const
