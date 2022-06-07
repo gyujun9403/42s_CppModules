@@ -15,7 +15,7 @@ protected:
 	virtual ~Scalar(); // destructor
 	// ******************************************************
 private:
-	double orgValue_;
+	double orgScalar_;
 protected:
 	bool isNan_;
 	short isInf_;
