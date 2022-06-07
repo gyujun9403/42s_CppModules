@@ -2,7 +2,7 @@ TARGET = convert
 CPP = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
-SRCS = main.cpp Input.cpp InvalidInputException.cpp ScalarChar.cpp Scalar.cpp
+SRCS = main.cpp Input.cpp InvalidInputException.cpp InitMissingException.cpp ScalarChar.cpp Scalar.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(TARGET)

@@ -4,6 +4,9 @@
 #include "Input.hpp"
 #include "Scalar.hpp"
 #include "InvalidInputException.hpp"
+#include "InitMissingException.hpp"
+
+class Input;
 
 class ScalarChar: public Scalar
 {
@@ -17,11 +20,10 @@ public:
 	// ******************************************************
 
 private:
-	char scalar_;
-	Input* input_;
+	char charValue_;
 public:
-	ScalarChar(Input& input) throw(InvalidInputException);
-	void setScalar(Input& input) throw(InvalidInputException);
+	ScalarChar(const Input& input);
+	bool setValue(const Input& input);
 	// @overriding
 	virtual void prtValueInfo() const;
 };

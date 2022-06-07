@@ -2,38 +2,28 @@
 #include <iostream>
 #include <climits>
 
-ScalarChar::ScalarChar()
-{
-	this->input_ = NULL;
-}
+ScalarChar::ScalarChar() {}
 
-ScalarChar::~ScalarChar(){ ;}
+ScalarChar::~ScalarChar() {}
 
 ScalarChar::ScalarChar(const ScalarChar& other)
-{
-	this->input_ = other.input_;
-	this->scalar_ = other.scalar_;
-}
+: Scalar(other), charValue_(other.charValue_) {}
 
 ScalarChar& ScalarChar::operator=(const ScalarChar& other)
 {
-	this->input_ = other.input_;
-	this->scalar_ = other.scalar_;
+	// 🌟 call parent's assignment operator
+	Scalar::operator=(other);
+	this->charValue_ = other.charValue_;
 	return *this;
 }
 
-ScalarChar::ScalarChar(Input& input) throw(InvalidInputException)
-{
-	double tempValue;
+ScalarChar::ScalarChar(const Input& input) throw(std::exception)
+: Scalar(input), charValue_(static_cast<char>(Scalar::getOrgValue())) {}
 
-	if (input.isComiled() == false)
-		throw(InvalidInputException("ScalarChar::ScalarChar(Input& input)"));
-	tempValue = input.getValue();
-	if (tempValue < CHAR_MIN || tempValue > CHAR_MAX)
-		throw(InvalidInputException("ScalarChar::ScalarChar(Input& input)"));
-	this->input_ = &input;
-	// 
-	this->scalar_ = static_cast<char>(tempValue);
+bool ScalarChar::setValue(const Input& input)
+{
+	Scalar::setScalar(input);
+	this->charValue_ = static_cast<char>(Scalar::getOrgValue());
 }
 
 // @overriding
@@ -41,17 +31,15 @@ void ScalarChar::prtValueInfo() const
 {
 	std::string tempStr("char: ");
 
-	if (this->input_->isInf() || this->input_->isNan())
-		tempStr.append("Non displayable");
 	// http://www.cplusplus.com/forum/general/128714/
-	else if(!std::isprint(this->scalar_))
-		tempStr.append("Non displayable");
-	else if(this->scalar_ < 0)
+	if (this->isInf_ || this->isNan_ || 
+		this->getOrgValue() > CHAR_MAX || this->getOrgValue() < 0 ||
+		!std::isprint(this->charValue_))
 		tempStr.append("Non displayable");
 	else
 	{
 		tempStr += "'";
-		tempStr += this->scalar_;
+		tempStr += this->charValue_;
 		tempStr += "'";
 	}
 	std::cout << tempStr << std::endl;

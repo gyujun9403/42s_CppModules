@@ -14,7 +14,6 @@ public:
 	Input& operator=(const Input& other); // (copy) assignment operator
 	// ******************************************************
 private:
-	bool isCompiled_;
 	char* inputStr_;
 	double value_;
 	bool isNan_;
@@ -22,11 +21,9 @@ private:
 
 public:
 	Input(char* str) throw(InvalidInputException);
-	void compileInput() throw(InvalidInputException);
-	bool isComiled();
-	double getValue();
-	bool isNan();
-	bool isInf();
+	double getValue() const;
+	bool isNan() const;
+	bool isInf() const;
 };
 
 #endif
