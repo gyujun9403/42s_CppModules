@@ -4,7 +4,6 @@
 #include "Input.hpp"
 #include "Scalar.hpp"
 #include "InvalidInputException.hpp"
-#include "InitMissingException.hpp"
 
 class Input;
 
@@ -20,10 +19,11 @@ public:
 	// ******************************************************
 
 private:
-	char charValue_;
+	char charScalar_;
+	bool isOutOfDouble_;
 public:
 	ScalarChar(const Input& input);
-	void setValue(const Input& input);
+	void setScalar(const Input& input);
 	// @overriding
 	virtual void prtValueInfo() const;
 };

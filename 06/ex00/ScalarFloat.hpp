@@ -4,7 +4,6 @@
 #include "Scalar.hpp"
 #include "Input.hpp"
 #include "InvalidInputException.hpp"
-#include "InitMissingException.hpp"
 
 class Input;
 
@@ -21,9 +20,10 @@ public:
 
 private:
 	float floatScalar_;
+	bool isOutOfDouble_;
 public:
-	ScalarFloat(Input& input);
-	void setScalar(Input& input);
+	ScalarFloat(const Input& input);
+	void setScalar(const Input& input);
 	// @overriding
 	virtual void prtValueInfo() const;
 };

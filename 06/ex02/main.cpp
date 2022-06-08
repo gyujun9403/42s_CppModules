@@ -7,12 +7,16 @@
 int main()
 {
 	Base* ptr;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 6; i++)
 	{
 		ptr = TypeFinder::generate();
 		TypeFinder::identify(ptr);
 		TypeFinder::identify(*ptr);
-		delete(ptr);
+		delete ptr;
 		sleep(1);
 	}
+	ptr = new Base();
+	TypeFinder::identify(ptr);
+	TypeFinder::identify(*ptr);
+	delete ptr;
 }

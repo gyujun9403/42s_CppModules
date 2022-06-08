@@ -9,8 +9,9 @@
 class TypeFinder
 {
 	// ****************[canonical class form]****************
-public:
+private:
 	TypeFinder();									// default constructor
+public:
 	virtual ~TypeFinder();							// destructor
 	TypeFinder(const TypeFinder& other);			// copy constructor
 	TypeFinder& operator=(const TypeFinder& other);	// (copy) assignment operator

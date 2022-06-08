@@ -16,14 +16,18 @@ public:
 private:
 	char* inputStr_;
 	double value_;
+	bool isFloat_;
 	bool isNan_;
-	short isInf_;
+	bool isInf_;
+	bool isOutOfDouble_;
 
 public:
 	Input(char* str) throw(std::exception);
 	double getValue() const;
 	bool isNan() const;
 	bool isInf() const;
+	bool isFloat() const;
+	bool isOutOfDouble() const;
 };
 
 #endif

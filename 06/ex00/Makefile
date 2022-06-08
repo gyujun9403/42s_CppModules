@@ -13,7 +13,6 @@ $(TARGET) : $(addprefix $(DIR), $(OBJS))
 	$(CPP) $(FLAGS) -o $@ -c $<
 clean :
 	rm -rf $(OBJS)
-	rm -rf *_shrubbery
 fclean : clean
 	rm -rf $(TARGET)
 re : 
