@@ -1,21 +1,25 @@
 #ifndef EASY_FINDER_HPP
 #define EASY_FINDER_HPP
 
+#include <algorithm>
+#include <exception>
+
 // easyfind find element in container
 // if find, return it. if not find, throw exception.
-template<typename T>
-T easyfind(T& constainer, int element)
+template<typename C>
+typename C::iterator easyfind(C& constainer, int element) throw(std::exception)
 {
-	try
+	typename C::iterator iterEnd, iterRt;
+	iterEnd = constainer.end();
+	iterRt = std::find(constainer.begin(), iterEnd, element);
+	if (iterRt == iterEnd)
 	{
-		/* code */
-		T::find()
+		throw (std::runtime_error("constainer doesn't have element."));
 	}
-	catch(std::exception& e)
+	else 
 	{
-		std::cerr << e.what() << '\n';
+		return iterRt;
 	}
-	
 }
 
 #endif
