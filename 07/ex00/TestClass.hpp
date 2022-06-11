@@ -7,11 +7,11 @@ class TestClass
 {
 	// ****************[canonical class form]****************
 private:
-	TestClass();									// default constructor
+	TestClass(); // default constructor
 public:
-	virtual ~TestClass();							// destructor
-	TestClass(const TestClass& other);				// copy constructor
-	TestClass& operator=(const TestClass& other);	// (copy) assignment operator
+	virtual ~TestClass(); // destructor
+	TestClass(const TestClass& other); // copy constructor
+	TestClass& operator=(const TestClass& other); // (copy) assignment operator
 	// ******************************************************
 private:
 	std::string name_;

@@ -1,8 +1,8 @@
-TARGET = ex00
+TARGET = ex01
 CPP = c++
 FLAGS = -std=c++98 -Wall -Wextra -Werror
 DIR = ./
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(TARGET)
