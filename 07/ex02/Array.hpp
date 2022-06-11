@@ -22,6 +22,12 @@ private:
 		}
 	};
 public:
+	Array(unsigned int n)
+	{
+		//🌟 default값으로 초기화
+		this->a_ = new T[n];
+		this->size_ = n;
+	}
 	unsigned int size() const
 	{
 		return this->size_;
@@ -39,12 +45,6 @@ public:
 			throw(OutOfBounceException());
 		return this->a_[i];
 	}
-	Array(unsigned int n)
-	{
-		//🌟 default값으로 초기화
-		this->a_ = new T[n];
-		this->size_ = n;
-	}
 
 	// ****************[canonical class form]****************
 public:
@@ -58,30 +58,39 @@ public:
 	{
 		// 🌟
 		if (a_ != NULL)
+		{
 			delete[] a_;
+		}
 	}
 	Array(const Array& other)				// copy constructor
-	{
-		unsigned int sizeOther;
-		if (this->a_ != NULL)
-			delete[] a_;
-		sizeOther = other.size();
-		a_ = new T[sizeOther];
-	}
-	Array& operator=(const Array& other)	// (copy) assignment operator
-	{
-		unsigned int sizeOther;
-
-		if (this->a_ != NULL)
-			delete[] a_;
-		sizeOther = other.size();
-		a_ = new T[sizeOther];
-		for (unsigned int i = 0; i < sizeOther; i++)
+	{		
+		this->size_ = other.size();
+		a_ = new T[this->size_];
+		for (unsigned int i = 0; i < this->size_; i++)
 		{
 			a_[i] = other[i];
 		}
-		this->size_ = sizeOther;
-		return *this;
+	}
+	Array& operator=(const Array& other)	// (copy) assignment operator
+	{
+		if (this == &other)
+		{
+			return *this;
+		}
+		else
+		{
+			if (this->a_ != NULL)
+			{
+				delete[] a_;
+			}
+			this->size_ = other.size();
+			a_ = new T[this->size_];
+			for (unsigned int i = 0; i < this->size_; i++)
+			{
+				a_[i] = other[i];
+			}
+			return *this;
+		}
 	}
 	// ******************************************************
 };

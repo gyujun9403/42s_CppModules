@@ -2,14 +2,14 @@
 #include <iostream>
 #include <cctype>
 
-void ft_tolower(char &arr)
+void ftTolower(char &arr)
 {
-	arr = std::tolower(static_cast<unsigned char>(arr));
+	arr = std::tolower(arr);
 }
 
-void ft_toupper(char &arr)
+void ftToupper(char &arr)
 {
-	arr = std::toupper(static_cast<unsigned char>(arr));
+	arr = std::toupper(arr);
 }
 
 int main()
@@ -19,11 +19,13 @@ int main()
 	std::cout << "--[original]--\n" <<
 	"a[0]: " << a[0] << "\na[1]: " << a[1] << "\na[2]: " << a[2] << "\n" << std::endl;
 	
-	iter(a, 3, ft_tolower);
+	// 🌟
+	iter(a, sizeof(a) / sizeof(a[0]), ftTolower);
 	std::cout << "---[Lower]---\n" <<
 	"a[0]: " << a[0] << "\na[1]: " << a[1] << "\na[2]: " << a[2] << "\n" << std::endl;
 
-	iter(a, 3, ft_toupper);
+	// 🌟
+	iter(a, sizeof(a) / sizeof(a[0]), ftToupper);
 	std::cout << "---[Upper]---\n" <<
 	"a[0]: " << a[0] << "\na[1]: " << a[1] << "\na[2]: " << a[2] << "\n" << std::endl;
 }

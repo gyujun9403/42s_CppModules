@@ -1,8 +1,8 @@
 #include "TestClass.hpp"
 
-TestClass::TestClass() { ;}
+TestClass::TestClass(): name_("default"), old_(0) {}
 
-TestClass::~TestClass() { ;}
+TestClass::~TestClass() {}
 
 TestClass::TestClass(const TestClass& other)
 {

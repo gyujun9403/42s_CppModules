@@ -17,7 +17,7 @@ int main()
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
         }
         try
         {
@@ -25,7 +25,7 @@ int main()
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
         }
         try
         {
@@ -33,7 +33,7 @@ int main()
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
         }
         std::cout << "---------------------------\n" << std::endl;
     }

@@ -23,7 +23,7 @@ int main()
 		}
 		catch(std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 		}
 		std::cout << "----------------------\n" << std::endl;
 	}
@@ -37,7 +37,7 @@ int main()
 		}
 		catch(std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 		}
 		std::cout << "----------------------\n" << std::endl;
 	}
@@ -57,11 +57,11 @@ int main()
 		}
 		catch(std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 		}
-		std::cout << "------[str2 copy]------" << std::endl;
-		std::cout << "> show Array Class can copy std::string's copy " << std::endl;
-		std::cout << "[before copy]" << std::endl;
+		std::cout << "------[str2 assignment]------" << std::endl;
+		std::cout << "> show Array Class can assign" << std::endl;
+		std::cout << "[before assignment]" << std::endl;
 		try
 		{
 			for (int i = 0; i < 5000000; i++)
@@ -71,10 +71,11 @@ int main()
 		}
 		catch(std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 		}
 		str2 = str1;
-		std::cout << "[after copy]" << std::endl;
+		str2[0].append("2");
+		std::cout << "[after assignment]" << std::endl;
 		try
 		{
 			for (int i = 0; i < 5000000; i++)
@@ -84,7 +85,33 @@ int main()
 		}
 		catch(std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
+		}
+		std::cout << "------[str3 copy constructor]------" << std::endl;
+		Array<std::string> str3(str1);
+		str3[0].append("3");
+		try
+		{
+			for (int i = 0; i < 5000000; i++)
+			{
+				std::cout << "str3[" << i << "] :" << str3[i] << std::endl;
+			}
+		}
+		catch(std::exception& e)
+		{
+			std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
+		}
+		std::cout << "------[str1, original]------" << std::endl;
+		try
+		{
+			for (int i = 0; i < 5000000; i++)
+			{
+				std::cout << "str1[" << i << "] :" << str1[i] << std::endl;
+			}
+		}
+		catch(std::exception& e)
+		{
+			std::cerr << "\e[31m" << e.what() << "\e[0m" << '\n';
 		}
 		std::cout << "----------------------\n" << std::endl;
 	}

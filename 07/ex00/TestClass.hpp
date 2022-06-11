@@ -6,9 +6,8 @@
 class TestClass
 {
 	// ****************[canonical class form]****************
-private:
-	TestClass(); // default constructor
 public:
+	TestClass(); // default constructor
 	virtual ~TestClass(); // destructor
 	TestClass(const TestClass& other); // copy constructor
 	TestClass& operator=(const TestClass& other); // (copy) assignment operator
@@ -27,7 +26,6 @@ public:
 	std::string getName() const;
 	int getOld() const;
 };
-// const 붙여야함... insertion
 std::ostream& operator<<(std::ostream& os, const TestClass& tc);
 
 #endif
