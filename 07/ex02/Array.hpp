@@ -24,8 +24,8 @@ private:
 public:
 	Array(unsigned int n)
 	{
-		//🌟 default값으로 초기화
-		this->a_ = new T[n];
+		//🌟 init to zero
+		this->a_ = new T[n]();
 		this->size_ = n;
 	}
 	unsigned int size() const
@@ -42,7 +42,9 @@ public:
 	T& operator[](unsigned int i) const throw(std::exception)
 	{
 		if (i >= this->size_)
+		{
 			throw(OutOfBounceException());
+		}
 		return this->a_[i];
 	}
 
@@ -50,13 +52,11 @@ public:
 public:
 	Array()									// default constructor
 	{
-		//🌟 default값으로 초기화
-		a_ = new T[0];
+		a_ = new T[0]();
 		size_ = 0;
 	}
 	virtual ~Array()						// destructor
 	{
-		// 🌟
 		if (a_ != NULL)
 		{
 			delete[] a_;
@@ -65,7 +65,7 @@ public:
 	Array(const Array& other)				// copy constructor
 	{		
 		this->size_ = other.size();
-		a_ = new T[this->size_];
+		a_ = new T[this->size_]();
 		for (unsigned int i = 0; i < this->size_; i++)
 		{
 			a_[i] = other[i];
@@ -84,7 +84,7 @@ public:
 				delete[] a_;
 			}
 			this->size_ = other.size();
-			a_ = new T[this->size_];
+			a_ = new T[this->size_]();
 			for (unsigned int i = 0; i < this->size_; i++)
 			{
 				a_[i] = other[i];

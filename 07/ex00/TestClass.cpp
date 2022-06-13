@@ -5,10 +5,7 @@ TestClass::TestClass(): name_("default"), old_(0) {}
 TestClass::~TestClass() {}
 
 TestClass::TestClass(const TestClass& other)
-{
-	this->name_ = other.name_;
-	this->old_ = other.old_;
-}
+: name_(other.name_), old_(other.old_) {}
 
 TestClass& TestClass::operator=(const TestClass& other)
 {

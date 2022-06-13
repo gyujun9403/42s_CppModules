@@ -11,21 +11,29 @@ void swap(T& one, T& theOther)
 }
 
 template<typename T>
-T min(T one, T theOther)
+T min(T& one, T& theOther)
 {
 	if (one >= theOther)
+	{
 		return theOther;
+	}
 	else
+	{
 		return one;
+	}
 }
 
 template<typename T>
-T max(T one, T theOther)
+T max(T& one, T& theOther)
 {
 	if (one <= theOther)
+	{
 		return theOther;
+	}
 	else
+	{
 		return one;
+	}
 }
 
 #endif
